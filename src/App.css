@@ -1,13 +1,31 @@
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root{
-  --accent: #2C5E41;
+:root {
+  --accent: #2c5e41;
+  --bg: #f5f5f5;
+  --text-dark: #1f1f1f;
 }
-html,body{
+html {
+  translate: no;
+}
+html,
+body {
   overflow-x: hidden;
   overscroll-behavior: none;
+}
+
+body {
+  background-color: black;
 }

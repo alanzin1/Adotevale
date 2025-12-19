@@ -4,14 +4,13 @@ import Help from "../../sections/help/Help";
 import Hero from "../../sections/hero/Hero";
 import styles from "./Home.module.css";
 
-
-export default function Home(){
-    return(
-        <main className={styles.home}>
-        <Hero/>
-        <About/>
-        <Adopt/>
-        <Help/>
-        </main>
-    )
+export default function Home() {
+  return (
+    <main className={styles.home}>
+      <Hero />
+      <About />
+      <Adopt />
+      <Help />
+    </main>
+  );
 }

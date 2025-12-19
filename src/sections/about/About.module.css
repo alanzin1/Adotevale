@@ -1,6 +1,7 @@
 .about {
-  background-color: #ffffff;
-  padding: 6rem 2rem;
+  position: relative; /* 🔥 necessário pro divider ficar preso na seção */
+  background-color: var(--bg);
+  padding: 6rem 2rem 10rem; /* espaço extra embaixo pro divider */
   display: flex;
   justify-content: center;
 }
@@ -21,7 +22,7 @@
 .title {
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
-  color: #2f5d3a;
+  color: var(--accent);
   margin-bottom: 1.5rem;
   text-align: left;
 }
@@ -29,7 +30,7 @@
 .text {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: #1f1f1f;
+  color: var(--text-dark);
   max-width: 520px;
 }
 
@@ -40,12 +41,43 @@
   width: 100%;
   height: auto;
 }
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 140px;
+  display: block;
+  transform: rotate(180deg) scaleX(-1);
+}
+
+.shape {
+  fill: var(--accent);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+
+.wave2 {
+  opacity: 0.5;
+}
+
+.wave3 {
+  opacity: 1;
+}
 
 /* 📱 MOBILE */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    text-align: center;
     gap: 2.5rem;
   }
 
@@ -59,5 +91,8 @@
 
   .image {
     max-width: 220px;
+  }
+  .dividerSvg {
+    height: 40px;
   }
 }

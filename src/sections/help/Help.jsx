@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiX } from "react-icons/fi";
 import styles from "./Help.module.css";
 
 const PIX_KEY =
@@ -11,87 +13,106 @@ export default function Help() {
   function copyPix() {
     navigator.clipboard.writeText(PIX_KEY);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setTimeout(() => setCopied(false), 5000);
   }
 
   return (
     <>
       <section id="ajude" className={styles.help}>
         <div className={styles.container}>
-          <div className={styles.content}>
+          <motion.div
+            className={styles.content}
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: false }}
+          >
             <h2 className={styles.title}>Ajude Nosso Site</h2>
 
             <p className={styles.text}>
-              A Adotvale é um projeto comunitário e sem fins lucrativos, criado
+              A Adotevale é um projeto comunitário e sem fins lucrativos, criado
               para ajudar os animais. No entanto, para continuar funcionando,
               precisa de apoio financeiro para cobrir custos como domínio,
               hospedagem e manutenção.
             </p>
 
             <p className={styles.text}>
-              Sem esse apoio, o site corre o risco de sair do ar. Se você acredita
-              na causa, considere fazer uma doação — sua ajuda é essencial para
-              que o Adotvale continue.
+              Sem esse apoio, o site corre o risco de sair do ar. Se você
+              acredita na causa, considere fazer uma doação — sua ajuda é
+              essencial para que o Adotevale continue.
             </p>
 
-            <button
-              className={styles.button}
-              onClick={() => setOpen(true)}
-            >
+            <button className={styles.button} onClick={() => setOpen(true)}>
               Quero ajudar
             </button>
-          </div>
+          </motion.div>
 
-          <img
+          <motion.img
             src="/help-donation.png"
-            alt="Ajude o Adotvale a continuar ajudando animais"
+            alt="Ajude o Adotevale a continuar ajudando animais"
             className={styles.image}
+            initial={{ opacity: 0, scale: 0.85 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            viewport={{ once: false }}
           />
         </div>
       </section>
 
-      {/* MODAL PIX */}
-      {open && (
-        <div className={styles.modalOverlay} onClick={() => setOpen(false)}>
-          <div
-            className={styles.modal}
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className={styles.modalOverlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpen(false)}
           >
-            <button
-              className={styles.close}
-              onClick={() => setOpen(false)}
+            <motion.div
+              className={styles.modal}
+              initial={{ opacity: 0, scale: 0.9, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 40 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
             >
-              ✕
-            </button>
-
-            <h3>Ajude o Adotevale</h3>
-
-            <p className={styles.modalText}>
-              Se estiver no computador, escaneie o QR Code com o celular.
-              <br />
-              Se estiver no celular, use o Pix Copia e Cola.
-            </p>
-
-            <img
-              src="/qrcode.webp"
-              alt="QR Code Pix Adotvale"
-              className={styles.qr}
-            />
-
-            <div className={styles.pixBox}>
-              <code>{PIX_KEY}</code>
-              <button onClick={copyPix}>
-                {copied ? "Copiado ✔" : "Copiar Pix"}
+              <button
+                className={styles.close}
+                onClick={() => setOpen(false)}
+                aria-label="Fechar modal"
+              >
+                <FiX size={35} />
               </button>
-            </div>
 
-            <small className={styles.disclaimer}>
-              O valor arrecadado é usado exclusivamente para manter o site
-              (domínio, hospedagem e manutenção).
-            </small>
-          </div>
-        </div>
-      )}
+              <h3>Ajude o Adotevale</h3>
+
+              <p className={styles.modalText}>
+                Se estiver no computador, escaneie o QR Code com o celular.
+                <br />
+                Se estiver no celular, use o Pix Copia e Cola.
+              </p>
+
+              <img
+                src="/qrcode.webp"
+                alt="QR Code Pix Adotevale"
+                className={styles.qr}
+              />
+
+              <div className={styles.pixBox}>
+                <code>{PIX_KEY}</code>
+                <button onClick={copyPix}>
+                  {copied ? "Copiado ✔" : "Copiar Pix"}
+                </button>
+              </div>
+
+              <small className={styles.disclaimer}>
+                O valor arrecadado é usado exclusivamente para manter o site
+                (domínio, hospedagem e manutenção).
+              </small>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

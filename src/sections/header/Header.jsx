@@ -6,7 +6,7 @@ export default function Header() {
 
   useEffect(() => {
     function handleScroll() {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 70) {
         setBlack(true);
       } else {
         setBlack(false);

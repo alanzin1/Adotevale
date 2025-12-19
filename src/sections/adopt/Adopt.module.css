@@ -1,4 +1,47 @@
-.adopt{
-    background-color: var(--accent);
-    height: 500px;
+.adopt {
+  position: relative; /* 🔥 necessário pro divider ficar preso na seção */
+  background-color: var(--accent);
+  height: 500px;
+  padding: 6rem 2rem 10rem; /* espaço extra embaixo pro divider */
+  display: flex;
+  justify-content: center;
+}
+
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 140px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: var(--bg);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+
+.wave2 {
+  opacity: 0.5;
+}
+
+.wave3 {
+  opacity: 1;
+}
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .dividerSvg {
+    height: 40px;
+  }
 }
