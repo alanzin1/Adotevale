@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -32,16 +34,16 @@ export default function Header() {
     { href: "#ajuda", text: "Ajuda" },
   ];
 
-  // Se o menu estiver aberto, o header fica preto, independente do scroll
   const isHeaderBlack = black || isMenuOpen;
 
   return (
     <header className={`${styles.header} ${isHeaderBlack ? styles.black : ""}`}>
-      <span
+      <Link
+        to="/"
         className={`${styles.logo} ${isHeaderBlack ? styles.logoblack : ""}`}
       >
         ADOTEVALE
-      </span>
+      </Link>
 
       {!isMobile ? (
         <nav

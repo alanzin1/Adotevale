@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem; /* adiciona espaçamento lateral */
+  padding: 0 1.5rem;
   z-index: var(--z-index-header);
   transition: background-color 0.4s ease;
   box-sizing: border-box;
@@ -172,8 +172,6 @@
   }
 }
 
-/* ----------------------------- */
-/* RESPONSIVE ------------------ */
 @media (max-width: 768px) {
   .panelWrapper {
     width: 100vw;

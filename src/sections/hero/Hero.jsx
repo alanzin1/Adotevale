@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -15,20 +16,17 @@ export default function Hero() {
         </h1>
 
         <div className={styles.buttons}>
-          <motion.button
-            className={styles.buttonOutline}
-            whileHover={{ scale: 1.07 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Quero doar
-          </motion.button>
-          <motion.button
-            className={styles.button}
-            whileHover={{ scale: 1.07 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Quero adotar
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
+            <Link to="/cadastro" className={styles.buttonOutline}>
+              Quero doar
+            </Link>
+          </motion.div>
+
+          <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
+            <Link to="/adotar" className={styles.button}>
+              Quero adotar
+            </Link>
+          </motion.div>
         </div>
       </div>
 

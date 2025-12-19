@@ -5,7 +5,6 @@ export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        {/* TEXTO */}
         <motion.div
           className={styles.content}
           initial={{ opacity: 0, x: -60 }}
@@ -23,7 +22,6 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* IMAGEM */}
         <motion.img
           src="/about-heart.png"
           alt="Cachorro e gato representando amor e adoção"

@@ -102,7 +102,6 @@
   color: #fff;
 }
 
-/* Buttons */
 .buttons {
   margin-top: 3rem;
   display: flex;
@@ -132,7 +131,6 @@
   cursor: pointer;
 }
 
-/* Divider */
 .divider {
   position: absolute;
   bottom: -1px;

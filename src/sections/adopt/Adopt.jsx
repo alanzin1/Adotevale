@@ -3,7 +3,6 @@ import styles from "./Adopt.module.css";
 export default function Adopt() {
   return (
     <section id="adopt" className={styles.adopt}>
-      {" "}
       <div className={styles.divider}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

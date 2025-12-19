@@ -1,4 +1,11 @@
+.pagetp {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .container {
+  max-width: 720px;
   background-color: var(--bg);
   margin: 0 auto;
   padding: 120px 1.5rem 4rem;

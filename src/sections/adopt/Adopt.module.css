@@ -1,8 +1,8 @@
 .adopt {
-  position: relative; /* 🔥 necessário pro divider ficar preso na seção */
+  position: relative;
   background-color: var(--accent);
   height: 500px;
-  padding: 6rem 2rem 10rem; /* espaço extra embaixo pro divider */
+  padding: 6rem 2rem 10rem;
   display: flex;
   justify-content: center;
 }
@@ -39,7 +39,6 @@
 .wave3 {
   opacity: 1;
 }
-/* 📱 MOBILE */
 @media (max-width: 768px) {
   .dividerSvg {
     height: 40px;
