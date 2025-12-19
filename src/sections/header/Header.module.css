@@ -1,18 +1,27 @@
+:root {
+  --delay-short: 0s;
+  --delay-medium: 0.12s;
+  --delay-long: 0.24s;
+  --panel-transition-time: 0.45s;
+  --z-index-header: 1000;
+  --z-index-panel-wrapper: 2000;
+  --z-index-toggle-btn: 2001;
+  --z-index-overlay: 1999;
+}
+
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 70px;
-  z-index: 9999;
-
+  width: 100%;
+  height: 60px;
   display: flex;
   align-items: center;
-
-  padding: 0 30px;
-  background: transparent;
-
+  justify-content: space-between;
+  padding: 0 1.5rem; /* adiciona espaçamento lateral */
+  z-index: var(--z-index-header);
   transition: background-color 0.4s ease;
+  box-sizing: border-box;
 }
 
 .black {
@@ -21,11 +30,175 @@
 }
 
 .logo {
-  color: var(--bg);
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--bg);
   transition: color 0.4s ease;
 }
+
 .logoblack {
   color: var(--accent);
+}
+
+.navDesktop {
+  display: flex;
+  gap: 2rem;
+}
+
+.navDesktop a {
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.navDesktopBlack a {
+  color: var(--text-black);
+}
+
+.navDesktop a:hover {
+  color: var(--accent);
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--bg);
+  cursor: pointer;
+  z-index: var(--z-index-toggle-btn);
+  position: relative;
+  padding: 0.5rem;
+}
+.toggleBtnBlack {
+  color: var(--text-black);
+}
+
+.toggleBtn:focus-visible {
+  outline: 2px solid var(--bg);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.panelWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 35vw;
+  max-width: 420px;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: var(--z-index-panel-wrapper);
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(105%);
+  transition: transform var(--panel-transition-time) ease;
+  pointer-events: none;
+}
+
+.layer1 {
+  background: var(--accent);
+  z-index: 3;
+  transition-delay: var(--delay-long);
+}
+
+.layer2 {
+  background: var(--accent2);
+  z-index: 4;
+  transition-delay: var(--delay-medium);
+}
+
+.layer3 {
+  background: var(--bg);
+  z-index: 5;
+  pointer-events: auto;
+  padding: 2rem;
+  transition-delay: var(--delay-short);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.open.layer1 {
+  transition-delay: var(--delay-short);
+}
+
+.open.layer2 {
+  transition-delay: var(--delay-medium);
+}
+
+.open.layer3 {
+  transition-delay: var(--delay-long);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.nav a {
+  color: var(--text-black);
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  padding: 0.5rem;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: var(--z-index-overlay);
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* ----------------------------- */
+/* RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+  .panelWrapper {
+    width: 100vw;
+    max-width: none;
+  }
+  .layer3 {
+    padding: 2rem 0;
+  }
+  .nav {
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 769px) {
+  .toggleBtn,
+  .panelWrapper,
+  .overlay {
+    display: none !important;
+  }
 }

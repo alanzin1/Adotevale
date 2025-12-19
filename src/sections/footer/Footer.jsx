@@ -54,7 +54,7 @@ export default function Footer() {
         {/* Coluna 4: Termos */}
         <div className={styles.terms}>
           <h4>Termos</h4>
-          <a href="/termos-de-uso">Termos de Uso</a>
+          <a href="/termos">Termos de Uso</a>
           <a href="/privacidade">Política de Privacidade</a>
         </div>
       </div>
