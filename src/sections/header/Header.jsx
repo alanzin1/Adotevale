@@ -78,11 +78,6 @@ export default function Header() {
               className={`${styles.panel} ${styles.layer2} ${
                 isMenuOpen ? styles.open : ""
               }`}
-            ></div>
-            <div
-              className={`${styles.panel} ${styles.layer3} ${
-                isMenuOpen ? styles.open : ""
-              }`}
             >
               <nav className={styles.nav}>
                 {menuLinks.map((link) => (

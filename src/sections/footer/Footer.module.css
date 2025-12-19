@@ -2,7 +2,6 @@
   background-color: var(--accent);
   color: var(--bg);
   padding: 3rem 2rem 1rem;
-  font-family: sans-serif;
 }
 
 .container {
@@ -31,12 +30,12 @@
 
 .socials a {
   margin-right: 0.5rem;
-  color: #fff;
-  transition: color 0.3s;
+  color: var(--bg);
+  transition: opacity 0.3s;
 }
 
 .socials a:hover {
-  color: #ffd700;
+  opacity: 0.7;
 }
 
 .links h4,
@@ -51,28 +50,27 @@
 .contact a,
 .terms a {
   display: block;
-  color: #fff;
+  color: var(--bg);
   margin-bottom: 0.4rem;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: opacity 0.3s;
 }
 
 .links a:hover,
 .contact a:hover,
 .terms a:hover {
-  color: #ffd700;
+  opacity: 0.7;
 }
 
 .bottom {
   text-align: center;
   font-size: 0.85rem;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding-top: 1rem;
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
   .container {
     grid-template-columns: 1fr 1fr;

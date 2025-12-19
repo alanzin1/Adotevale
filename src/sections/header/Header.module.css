@@ -1,5 +1,4 @@
 :root {
-  --delay-short: 0s;
   --delay-medium: 0.12s;
   --delay-long: 0.24s;
   --panel-transition-time: 0.45s;
@@ -109,17 +108,10 @@
 }
 
 .layer2 {
-  background: var(--accent2);
-  z-index: 4;
-  transition-delay: var(--delay-medium);
-}
-
-.layer3 {
   background: var(--bg);
   z-index: 5;
   pointer-events: auto;
-  padding: 2rem;
-  transition-delay: var(--delay-short);
+  transition-delay: var(--delay-medium);
 }
 
 .open {

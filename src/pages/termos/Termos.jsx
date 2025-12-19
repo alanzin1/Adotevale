@@ -108,6 +108,11 @@ export default function Termos() {
         Adotevale reserva-se o direito de remover qualquer anúncio que viole a
         legislação vigente.
       </p>
+      <h2>8. Alterações neste Termo de Uso</h2>
+      <p>
+        O Adotevale poderá atualizar este Termo de Uso a qualquer momento, sendo
+        recomendada a revisão periódica deste conteúdo.
+      </p>
 
       <p>
         Ao utilizar o Adotevale, você confirma que leu, entendeu e concorda com

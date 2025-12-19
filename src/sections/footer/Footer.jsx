@@ -13,10 +13,7 @@ export default function Footer() {
         {/* Coluna 1: Marca */}
         <div className={styles.brand}>
           <h3 className={styles.logo}>Adotevale</h3>
-          <p>
-            Conectando animais a lares cheios de amor no Vale do Jaguaribe,
-            Ceará.
-          </p>
+          <p>Conectando animais a lares cheios de amor e carinho</p>
           <div className={styles.socials}>
             <a href="#" aria-label="Facebook">
               <FaFacebook size={20} />
