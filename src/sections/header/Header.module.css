@@ -1,0 +1,31 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 30px;
+  background: transparent;
+
+  transition: background-color 0.4s ease;
+}
+
+.black {
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+    transition: color 0.4s ease;
+
+}
+.logoblack{
+    color: var(--accent);
+}

@@ -1,0 +1,105 @@
+.hero {
+  position: relative;
+  height: 90vh;
+  background: url("/banner-hero.jpg") center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient( to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+}
+
+/* Conteúdo */
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+}
+
+
+
+/* Botões */
+.buttons {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  background-color: var(--accent);
+  color: var(--preto);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.buttonOutline {
+  background: transparent;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 14px 28px;
+  border: 4px solid var(--accent);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 140px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: #ffffff;
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+
+.wave2 {
+  opacity: 0.5;
+}
+
+.wave3 {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .dividerSvg {
+  height: 60px;
+
+}
+
+}

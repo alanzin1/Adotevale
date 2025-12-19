@@ -1,0 +1,76 @@
+.footer {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.brand {
+  max-width: 350px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+.links h4,
+.contact h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.links a {
+  display: block;
+  color: #ffffff;
+  text-decoration: none;
+  margin-bottom: 0.6rem;
+  opacity: 0.9;
+}
+
+.links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Contato */
+.contact p {
+  margin-bottom: 0.6rem;
+  opacity: 0.9;
+}
+
+/* Bottom */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .brand,
+  .links,
+  .contact {
+    max-width: 100%;
+  }
+}
