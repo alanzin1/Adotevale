@@ -150,7 +150,9 @@ export default function Formulario() {
             .
           </label>
 
-          <button type="submit">Enviar para Análise</button>
+          <button className={styles.buttonform} type="submit">
+            Enviar para Análise
+          </button>
         </form>
       </div>
     </main>

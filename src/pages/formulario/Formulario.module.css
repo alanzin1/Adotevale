@@ -79,7 +79,7 @@ textarea {
   text-decoration: none;
 }
 
-button {
+.buttonform {
   margin-top: 24px;
   padding: 16px;
   background: var(--accent);
@@ -92,13 +92,13 @@ button {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s;
 }
 
-button:hover {
+.buttonform:hover {
   background: #27ae60;
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
 }
 
-button:active {
+.buttonform:active {
   transform: translateY(0);
   box-shadow: none;
 }
