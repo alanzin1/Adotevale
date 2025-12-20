@@ -30,7 +30,6 @@ const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        {/* Foto singular conforme novo padrão */}
         <img src={animal.foto} alt={animal.nome} className={styles.foto} />
         <span className={`${styles.badge} ${styles[animal.status]}`}>
           {animal.status === "pendente" ? (
@@ -58,7 +57,6 @@ const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
         </p>
 
         <div className={styles.detalhes}>
-          {/* Lógica de Cores e Texto Corrigida */}
           <span className={isCastrado ? styles.check : styles.uncheck}>
             <FaStethoscope /> {isCastrado ? "Castrado" : "Não castrado"}
           </span>

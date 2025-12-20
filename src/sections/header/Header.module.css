@@ -1,80 +1,98 @@
 :root {
+  --delay-short: 0.06s;
   --delay-medium: 0.12s;
   --delay-long: 0.24s;
+
   --panel-transition-time: 0.45s;
+
   --z-index-header: 1000;
+  --z-index-overlay: 1999;
   --z-index-panel-wrapper: 2000;
   --z-index-toggle-btn: 2001;
-  --z-index-overlay: 1999;
 }
 
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
   height: 60px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 0 1.5rem;
-  z-index: var(--z-index-header);
-  transition: background-color 0.4s ease;
   box-sizing: border-box;
+
+  z-index: var(--z-index-header);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .black {
   background-color: var(--bg);
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--bg);
-  transition: color 0.4s ease;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
-.logoblack {
-  color: var(--accent);
+.logoImage {
+  height: 45px;
+  width: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.03);
 }
 
 .navDesktop {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
-.navDesktop a {
-  color: var(--bg);
-  text-decoration: none;
+.navDesktop a,
+.navDesktop .navButton {
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  color: var(--bg);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
-.navDesktopBlack a {
+
+.navDesktopBlack a,
+.navDesktopBlack .navButton {
   color: var(--text-black);
 }
 
-.navDesktop a:hover {
-  color: var(--accent);
+.navDesktop a:hover,
+.navDesktop .navButton:hover {
+  opacity: 0.6;
 }
 
 .toggleBtn {
   background: none;
   border: none;
-  color: var(--bg);
-  cursor: pointer;
-  z-index: var(--z-index-toggle-btn);
-  position: relative;
   padding: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: var(--z-index-toggle-btn);
+  color: var(--bg);
 }
+
 .toggleBtnBlack {
   color: var(--text-black);
 }
 
 .toggleBtn:focus-visible {
-  outline: 2px solid var(--bg);
-  outline-offset: 2px;
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
@@ -85,17 +103,16 @@
   width: 35vw;
   max-width: 420px;
   height: 100vh;
-  overflow: hidden;
+
   pointer-events: none;
+  overflow: hidden;
   z-index: var(--z-index-panel-wrapper);
 }
 
 .panel {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
+
   transform: translateX(105%);
   transition: transform var(--panel-transition-time) ease;
   pointer-events: none;
@@ -126,47 +143,52 @@
   transition-delay: var(--delay-medium);
 }
 
-.open.layer3 {
-  transition-delay: var(--delay-long);
-}
-
 .nav {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 100px;
+  margin-top: 90px;
   text-align: center;
 }
 
-.nav a {
-  color: var(--text-black);
+.nav a,
+.nav .navButton {
   font-size: 1.5rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  color: var(--text-black);
+
+  background: none;
+  border: none;
   padding: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: color 0.3s ease;
 }
 
 .nav a:hover,
-.nav a:focus-visible {
+.nav .navButton:hover,
+.nav a:focus-visible,
+.nav .navButton:focus-visible {
   color: var(--accent);
   outline: none;
 }
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
+
   z-index: var(--z-index-overlay);
-  opacity: 0;
   animation: fadeIn 0.3s forwards;
 }
 
 @keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
@@ -177,9 +199,7 @@
     width: 100vw;
     max-width: none;
   }
-  .layer3 {
-    padding: 2rem 0;
-  }
+
   .nav {
     margin-top: 80px;
   }
@@ -191,4 +211,14 @@
   .overlay {
     display: none !important;
   }
+}
+
+.navButton {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
 }

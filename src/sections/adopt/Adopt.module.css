@@ -1,7 +1,7 @@
 .adopt {
   position: relative;
   background-color: var(--accent);
-  padding: 6rem 2rem 10rem; /* Aumentei o padding de baixo por causa do SVG */
+  padding: 6rem 2rem 10rem;
   display: flex;
   justify-content: center;
 }
@@ -63,7 +63,6 @@
 }
 
 .badgeSexo {
-  /* Corrigido para bater com o JSX anterior */
   position: absolute;
   top: 15px;
   right: 15px;

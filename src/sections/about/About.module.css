@@ -1,6 +1,8 @@
 .about {
   position: relative;
   background-color: var(--bg);
+  scroll-margin-top: 280px;
+
   padding: 6rem 2rem 10rem;
   display: flex;
   justify-content: center;
@@ -73,6 +75,9 @@
 }
 
 @media (max-width: 768px) {
+  .about {
+    scroll-margin-top: 130px;
+  }
   .container {
     flex-direction: column;
     gap: 2.5rem;

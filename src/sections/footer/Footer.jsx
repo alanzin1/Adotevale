@@ -1,9 +1,4 @@
-import {
-  FaWhatsapp,
-  FaEnvelope,
-  FaFacebook,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaWhatsapp, FaEnvelope, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
@@ -12,19 +7,17 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.brand}>
-          <h3 className={styles.logo}>Adotevale</h3>
+          <img
+            src="/logo-white.webp"
+            alt="AdoteVale - Adoção de animais"
+            className={styles.logo}
+          />
+
           <p>Conectando animais a lares cheios de amor e carinho</p>
+
           <div className={styles.socials}>
             <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <FaFacebook size={20} />
-            </a>
-            <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/adote_vale/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -36,10 +29,8 @@ export default function Footer() {
 
         <div className={styles.links}>
           <h4>Links rápidos</h4>
-          <a href="#hero">Início</a>
-          <a href="#about">Sobre nós</a>
-
-          <Link to="/adotar">Quero adotar</Link>
+          <Link to="/">Início</Link>
+          <Link to="/catalogo">Quero adotar</Link>
           <Link to="/cadastro">Quero doar</Link>
         </div>
 

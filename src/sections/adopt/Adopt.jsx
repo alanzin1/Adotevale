@@ -38,7 +38,7 @@ export default function Adopt() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2>Encontre seu novo amigo</h2>
-          <p>Estes pequenos estão prontos para receber e dar muito amor.</p>
+          <p>Estes pequenos estão prontos para receber e dar muito amor</p>
         </div>
 
         <div className={styles.grid}>

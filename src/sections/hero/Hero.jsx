@@ -10,7 +10,7 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          NÃO PERCA MAIS TEMPO.
+          NÃO PERCA MAIS TEMPO
           <br />
           ADOÇÃO VALE A PENA!
         </h1>

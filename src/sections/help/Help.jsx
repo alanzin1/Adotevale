@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
 import styles from "./Help.module.css";
+import dog from "/dog-comp.webp";
+import qrcode from "/qrcode.jpeg";
 
 const PIX_KEY =
   "00020126580014br.gov.bcb.pix013620a16157-7a05-412d-be1a-b5b7dc9959405204000053039865802BR5925Alan Victor Soares Vieira6009Sao Paulo610901227-20062240520daqr252596265291220963041D5E";
@@ -18,7 +20,7 @@ export default function Help() {
 
   return (
     <>
-      <section id="ajude" className={styles.help}>
+      <section id="help" className={styles.help}>
         <div className={styles.container}>
           <motion.div
             className={styles.content}
@@ -30,7 +32,7 @@ export default function Help() {
             <h2 className={styles.title}>Ajude Nosso Site</h2>
 
             <p className={styles.text}>
-              A Adotevale é um projeto comunitário e sem fins lucrativos, criado
+              AdoteVale é um projeto comunitário e sem fins lucrativos, criado
               para ajudar os animais. No entanto, para continuar funcionando,
               precisa de apoio financeiro para cobrir custos como domínio,
               hospedagem e manutenção.
@@ -48,12 +50,22 @@ export default function Help() {
           </motion.div>
 
           <motion.img
-            src="/help-donation.png"
+            src={dog}
             alt="Ajude o Adotevale a continuar ajudando animais"
             className={styles.image}
             initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            animate={{ y: [-3, 3] }}
+            transition={{
+              opacity: { duration: 0.8, ease: "easeOut" },
+              scale: { duration: 0.8, ease: "easeOut" },
+              y: {
+                duration: 1,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "reverse",
+              },
+            }}
             viewport={{ once: false }}
           />
         </div>
@@ -84,7 +96,7 @@ export default function Help() {
                 <FiX size={35} />
               </button>
 
-              <h3>Ajude o Adotevale</h3>
+              <h3>Apoie AdoteVale</h3>
 
               <p className={styles.modalText}>
                 Se estiver no computador, escaneie o QR Code com o celular.
@@ -93,7 +105,7 @@ export default function Help() {
               </p>
 
               <img
-                src="/qrcode.jpeg"
+                src={qrcode}
                 alt="QR Code Pix Adotevale"
                 className={styles.qr}
               />

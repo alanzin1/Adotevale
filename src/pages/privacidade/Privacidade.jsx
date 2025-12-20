@@ -4,18 +4,18 @@ export default function Privacidade() {
   return (
     <main className={styles.pagetp}>
       <div className={styles.container}>
-        <h1>Política de Privacidade - Adotevale</h1>
+        <h1>Política de Privacidade - AdoteVale</h1>
 
         <p>
           A sua privacidade é importante para nós. Esta Política de Privacidade
-          descreve como o Adotevale coleta, utiliza, armazena e protege os dados
+          descreve como o AdoteVale coleta, utiliza, armazena e protege os dados
           pessoais fornecidos pelos usuários, em conformidade com a Lei Geral de
           Proteção de Dados (LGPD - Lei nº 13.709/2018).
         </p>
 
         <h2>1. Dados pessoais coletados</h2>
         <p>
-          O Adotevale não exige a criação de conta de usuário. Os dados pessoais
+          O AdoteVale não exige a criação de conta de usuário. Os dados pessoais
           coletados são exclusivamente aqueles fornecidos de forma voluntária no
           momento do cadastro do animal para adoção, incluindo:
         </p>
@@ -53,13 +53,13 @@ export default function Privacidade() {
 
         <h2>4. Compartilhamento e divulgação de dados</h2>
         <p>
-          O Adotevale não vende, aluga ou comercializa dados pessoais. O número
+          O AdoteVale não vende, aluga ou comercializa dados pessoais. O número
           de WhatsApp informado será exibido publicamente na plataforma com a
           única finalidade de permitir o contato para adoção.
         </p>
 
         <p>
-          O Adotevale não se responsabiliza pelo uso dos dados realizado por
+          O AdoteVale não se responsabiliza pelo uso dos dados realizado por
           terceiros após o contato externo à plataforma, incluindo interações
           via WhatsApp, redes sociais ou outros meios.
         </p>
@@ -81,7 +81,7 @@ export default function Privacidade() {
 
         <p>
           A exclusão dos dados poderá ser solicitada pelo responsável pelo
-          anúncio por meio dos canais oficiais do Adotevale, ou poderá ocorrer
+          anúncio por meio dos canais oficiais do AdoteVale, ou poderá ocorrer
           automaticamente em caso de violação dos Termos de Uso ou por obrigação
           legal.
         </p>
@@ -101,7 +101,7 @@ export default function Privacidade() {
 
         <p>
           As solicitações devem ser realizadas por meio dos canais oficiais do
-          Adotevale.
+          AdoteVale.
         </p>
 
         <h2>8. Responsabilidade do usuário</h2>
@@ -111,19 +111,19 @@ export default function Privacidade() {
         </p>
 
         <p>
-          O Adotevale não se responsabiliza por danos decorrentes do uso
+          O AdoteVale não se responsabiliza por danos decorrentes do uso
           indevido das informações por terceiros após a divulgação pública do
           anúncio.
         </p>
 
         <h2>9. Alterações nesta política</h2>
         <p>
-          O Adotevale poderá atualizar esta Política de Privacidade a qualquer
+          O AdoteVale poderá atualizar esta Política de Privacidade a qualquer
           momento, sendo recomendada a revisão periódica deste conteúdo.
         </p>
 
         <p>
-          Ao utilizar o Adotevale, você declara que leu, compreendeu e concorda
+          Ao utilizar o AdoteVale, você declara que leu, compreendeu e concorda
           com esta Política de Privacidade.
         </p>
       </div>

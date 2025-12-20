@@ -23,14 +23,19 @@
   --text-dark: #1f1f1f;
 }
 html {
+  scrollbar-width: none;
   translate: no;
 }
 html,
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
   overscroll-behavior: none;
 }
 
 body {
   background-color: black;
+}
+body::-webkit-scrollbar {
+  display: none;
 }

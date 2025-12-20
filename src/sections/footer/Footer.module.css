@@ -13,9 +13,9 @@
 }
 
 .brand .logo {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
+  height: 42px;
+  width: auto;
+  margin-bottom: 0.8rem;
 }
 
 .brand p {

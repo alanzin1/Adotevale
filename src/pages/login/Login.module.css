@@ -4,12 +4,12 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: #f0f2f5;
+  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
   padding: 1.5rem;
 }
 
 .loginContainer {
-  background: #ffffff;
+  background: white;
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@
 .loginTitle {
   font-size: 1.6rem;
   margin-bottom: 2rem;
-  color: #1a1a1a;
+  color: var(--accent);
   font-weight: 700;
   text-align: center;
 }
@@ -36,7 +36,7 @@
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #444;
+  color: var(--text-dark);
 }
 
 .loginForm input {
@@ -46,12 +46,11 @@
   border: 1px solid #ddd;
   font-size: 1rem;
   box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s;
 }
 
 .loginForm input:focus {
-  border-color: #4caf50;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  border-color: var(--accent);
   outline: none;
 }
 
@@ -68,8 +67,8 @@
 .loginForm button {
   width: 100%;
   padding: 1rem;
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--accent);
+  color: var(--bg);
   border: none;
   border-radius: 6px;
   font-size: 1rem;
@@ -80,11 +79,11 @@
 }
 
 .loginForm button:hover:not(:disabled) {
-  background-color: #388e3c;
+  background-color: var(--accent);
 }
 
 .loginForm button:disabled {
-  background-color: #a5d6a7;
+  background-color: var(--accent-dark);
   cursor: not-allowed;
 }
 
