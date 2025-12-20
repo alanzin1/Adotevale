@@ -1,0 +1,262 @@
+.catalogoMain {
+  min-height: 100vh;
+  padding: 8rem 5% 4rem;
+  /* Gradiente mais suave e profundo */
+  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Filtros Estilizados */
+.filtros {
+  width: 100%;
+  max-width: 1300px;
+  padding: 1.5rem;
+  border-radius: 24px;
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filtroGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1 1 180px;
+}
+
+.filtroGroup label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chips {
+  display: flex;
+  gap: 12px;
+}
+
+.chips button {
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chips .activeChip {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.filtroGroup select {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: white;
+  color: var(--text-dark);
+  font-weight: 500;
+  outline: none;
+  min-width: 180px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filtroGroup select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
+}
+
+/* Grid de Cards */
+.grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.imageBox {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .imageBox img {
+  transform: scale(1.1);
+}
+
+.badgeSexo {
+  /* Corrigido para bater com o JSX anterior */
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  z-index: 2;
+}
+
+.details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.details h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.infoBreve {
+  display: flex;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.cidadeText {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btnLink {
+  margin-top: auto;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.btnLink:hover {
+  filter: brightness(1.1);
+}
+.empty {
+  color: var(--bg);
+}
+@media (max-width: 768px) {
+  .catalogoMain {
+    padding: 6rem 12px 4rem;
+  }
+
+  .filtros {
+    gap: 10px;
+    padding: 1rem;
+  }
+
+  .filtroGroup {
+    flex: 1 1 calc(50% - 10px); /* Exatamente 2 filtros por linha no mobile */
+    min-width: 120px;
+  }
+
+  .filtroGroup label {
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .filtroGroup select {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  /* Grid com 2 colunas */
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .imageBox {
+    height: 160px;
+  }
+
+  .details {
+    padding: 12px;
+  }
+
+  .details h3 {
+    font-size: 1.1rem;
+  }
+
+  .infoBreve {
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+
+  .cidadeText {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+
+  .btnLink {
+    padding: 10px;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .grid {
+    gap: 8px;
+  }
+  .details h3 {
+    font-size: 1rem;
+  }
+  .infoBreve span:last-child {
+    display: none; /* Esconde o porte se a tela for minúscula para não quebrar layout */
+  }
+}

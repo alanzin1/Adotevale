@@ -10,8 +10,8 @@ import styles from "./Formulario.module.css";
 import Modal from "../../components/modal/Modal";
 
 export default function Formulario() {
-  const [fotos, setFotos] = useState([]);
-  const [previews, setPreviews] = useState([]);
+  const [foto, setFoto] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
@@ -22,8 +22,8 @@ export default function Formulario() {
     sexo: "",
     idade: 1,
     porte: "",
-    castrado: "",
-    vacinado: "",
+    castrado: false,
+    vacinado: false,
     cidade: "",
     descricao: "",
     whatsapp: "",
@@ -33,90 +33,85 @@ export default function Formulario() {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
     setForm((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : type === "number" ? value : value,
+      [name]:
+        type === "checkbox"
+          ? checked
+          : name === "castrado" || name === "vacinado"
+          ? value === "true"
+          : type === "number"
+          ? Number(value)
+          : value,
     }));
   };
 
-  const handleFotos = (e) => {
+  const handleFoto = (e) => {
     const file = e.target.files[0];
-
     if (!file) return;
 
-    setFotos([file]);
-    setPreviews([URL.createObjectURL(file)]);
-
+    setFoto(file);
+    setPreview(URL.createObjectURL(file));
     e.target.value = "";
   };
 
   const removerFoto = () => {
-    setFotos([]);
-    setPreviews([]);
+    setFoto(null);
+    setPreview(null);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.confirmacao || !form.termos) {
-      alert("Você precisa aceitar os termos");
+      alert("Você precisa aceitar os termos e a declaração.");
       return;
     }
 
-    if (fotos.length === 0) {
-      alert("Envie ao menos uma foto");
+    if (!foto) {
+      alert("Por favor, envie uma foto do animal.");
       return;
     }
 
     setLoading(true);
 
     try {
-      const urls = [];
+      // Upload da foto única
+      const url = await uploadImage(foto);
 
-      for (const foto of fotos) {
-        const url = await uploadImage(foto);
-        urls.push(url);
-      }
-
-      await addDoc(collection(db, "animals"), {
-        nome: form.nome,
-        especie: form.especie,
-        sexo: form.sexo,
-        idade: Number(form.idade),
-        porte: form.porte,
-        castrado: form.castrado,
-        vacinado: form.vacinado,
-        cidade: form.cidade,
-        descricao: form.descricao,
-        whatsapp: form.whatsapp,
-        fotos: urls,
+      // Objeto organizado para o Firestore
+      const dadosParaEnviar = {
         ...form,
+        foto: url,
         status: "pendente",
         createdAt: serverTimestamp(),
-      });
+      };
+
+      await addDoc(collection(db, "animals"), dadosParaEnviar);
 
       setModalMessage("Seu cadastro foi enviado com sucesso!");
       setIsModalOpen(true);
 
+      // Reset de todos os campos
       setForm({
         nome: "",
         especie: "",
         sexo: "",
         idade: 1,
         porte: "",
-        castrado: "",
-        vacinado: "",
+        castrado: false,
+        vacinado: false,
         cidade: "",
         descricao: "",
         whatsapp: "",
         confirmacao: false,
         termos: false,
       });
-      setFotos([]);
-      setPreviews([]);
+      setFoto(null);
+      setPreview(null);
     } catch (err) {
-      alert(err.message || "Erro ao enviar");
+      console.error(err);
+      alert("Erro ao enviar: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -126,20 +121,23 @@ export default function Formulario() {
     <main className={styles.pageForm}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          Cadastro de Animal
-          <br /> para Adoção
+          Cadastro de Animal <br /> para Adoção
         </h1>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <label className={styles.fullWidth}>
             Foto do animal
-            <input type="file" accept="image/*" onChange={handleFotos} />
+            <input type="file" accept="image/*" onChange={handleFoto} />
           </label>
 
-          <div className={styles.previewContainer}>
-            {previews.map((src, index) => (
-              <div key={index} className={styles.previewWrapper}>
-                <img src={src} className={styles.previewImg} />
+          {preview && (
+            <div className={styles.previewContainer}>
+              <div className={styles.previewWrapper}>
+                <img
+                  src={preview}
+                  className={styles.previewImg}
+                  alt="Preview"
+                />
                 <button
                   type="button"
                   className={styles.removeBtn}
@@ -148,14 +146,14 @@ export default function Formulario() {
                   <FiX size={18} />
                 </button>
               </div>
-            ))}
-          </div>
+            </div>
+          )}
 
           <label>
             Nome do animal
             <input
               name="nome"
-              placeholder="Digite o nome do animal"
+              placeholder="Digite o nome"
               value={form.nome}
               onChange={handleChange}
               required
@@ -194,12 +192,11 @@ export default function Formulario() {
           </label>
 
           <label>
-            Idade aproximada (em meses)
+            Idade (meses)
             <input
               type="number"
               name="idade"
               min="1"
-              step="1"
               value={form.idade}
               onChange={handleChange}
               required
@@ -225,13 +222,12 @@ export default function Formulario() {
             Castrado(a)
             <select
               name="castrado"
-              value={form.castrado}
+              value={form.castrado.toString()}
               onChange={handleChange}
               required
             >
-              <option value="">Selecione</option>
-              <option>Sim</option>
-              <option>Não</option>
+              <option value="false">Não</option>
+              <option value="true">Sim</option>
             </select>
           </label>
 
@@ -239,13 +235,12 @@ export default function Formulario() {
             Vacinação em dia
             <select
               name="vacinado"
-              value={form.vacinado}
+              value={form.vacinado.toString()}
               onChange={handleChange}
               required
             >
-              <option value="">Selecione</option>
-              <option>Sim</option>
-              <option>Não</option>
+              <option value="false">Não</option>
+              <option value="true">Sim</option>
             </select>
           </label>
 
@@ -260,20 +255,9 @@ export default function Formulario() {
               <option value="">Selecione</option>
               <option>Aracati</option>
               <option>Russas</option>
-              <option>Morada Nova</option>
               <option>Limoeiro do Norte</option>
-              <option>Jaguaribe</option>
-              <option>Tabuleiro do Norte</option>
               <option>Quixeré</option>
-              <option>Jaguaretama</option>
-              <option>Alto Santo</option>
-              <option>Pereiro</option>
-              <option>Iracema</option>
-              <option>Jaguaribara</option>
-              <option>Palhano</option>
-              <option>São João do Jaguaribe</option>
-              <option>Ererê</option>
-              <option>Potiretama</option>
+              {/* Adicione outras cidades conforme sua necessidade */}
             </select>
           </label>
 
@@ -281,7 +265,7 @@ export default function Formulario() {
             Descrição
             <textarea
               name="descricao"
-              placeholder="Conte sobre o temperamento, convivência com crianças..."
+              placeholder="Conte sobre o temperamento..."
               value={form.descricao}
               onChange={handleChange}
               rows="3"
@@ -293,7 +277,7 @@ export default function Formulario() {
             WhatsApp
             <input
               name="whatsapp"
-              placeholder="Ex: (88) 99999-9999"
+              placeholder="(88) 99999-9999"
               value={form.whatsapp}
               onChange={handleChange}
               required
@@ -310,10 +294,7 @@ export default function Formulario() {
                 onChange={handleChange}
               />
               <label htmlFor="confirmacao">
-                <p>
-                  Declaro que as informações são verdadeiras e não se trata de
-                  venda
-                </p>
+                <p>Declaro que as informações são verdadeiras e não é venda</p>
               </label>
             </div>
 
@@ -327,8 +308,8 @@ export default function Formulario() {
               />
               <label htmlFor="termos">
                 <p>
-                  Li e aceito os <Link to="/termos">Termos de Uso</Link> e a{" "}
-                  <Link to="/privacidade">Política de Privacidade</Link>
+                  Li e aceito os <Link to="/termos">Termos</Link> e a{" "}
+                  <Link to="/privacidade">Privacidade</Link>
                 </p>
               </label>
             </div>

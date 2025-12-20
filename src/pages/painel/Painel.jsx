@@ -23,6 +23,85 @@ import {
 import { MdOutlinePets } from "react-icons/md";
 import styles from "./Painel.module.css";
 
+// Movi o AnimalCard para fora para melhorar a performance e organização
+const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
+  // Lógica Robusta: Verifica se é o booleano true OU a string "true"
+  const isCastrado = animal.castrado === true || animal.castrado === "true";
+  const isVacinado = animal.vacinado === true || animal.vacinado === "true";
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.imageContainer}>
+        {/* Foto singular conforme novo padrão */}
+        <img src={animal.foto} alt={animal.nome} className={styles.foto} />
+        <span className={`${styles.badge} ${styles[animal.status]}`}>
+          {animal.status === "pendente" ? (
+            <FaHourglassHalf />
+          ) : (
+            <FaCheckCircle />
+          )}
+          {animal.status}
+        </span>
+      </div>
+
+      <div className={styles.info}>
+        <div className={styles.headerCard}>
+          <h3>{animal.nome}</h3>
+          <span className={styles.idade}>{animal.idade} meses</span>
+        </div>
+
+        <p className={styles.subtitulo}>
+          <MdOutlinePets /> <strong>{animal.especie}</strong> • {animal.sexo} •
+          Porte {animal.porte}
+        </p>
+
+        <p className={styles.localizacao}>
+          <FaMapMarkerAlt /> {animal.cidade}
+        </p>
+
+        <div className={styles.detalhes}>
+          {/* Lógica de Cores e Texto Corrigida */}
+          <span className={isCastrado ? styles.check : styles.uncheck}>
+            <FaStethoscope /> {isCastrado ? "Castrado" : "Não castrado"}
+          </span>
+          <span className={isVacinado ? styles.check : styles.uncheck}>
+            <FaSyringe /> {isVacinado ? "Vacinado" : "Não vacinado"}
+          </span>
+        </div>
+
+        <p className={styles.descricao}>{animal.descricao}</p>
+
+        <a
+          href={`https://wa.me/${animal.whatsapp?.replace(/\D/g, "")}`}
+          target="_blank"
+          rel="noreferrer"
+          className={styles.whatsapp}
+        >
+          <FaWhatsapp /> {animal.whatsapp}
+        </a>
+
+        <div className={styles.acoes}>
+          {isAdminView && animal.status === "pendente" && (
+            <button
+              onClick={() => handleAprovar(animal.id)}
+              className={styles.btnAprovar}
+            >
+              <FaCheckCircle /> Aprovar
+            </button>
+          )}
+          <button
+            onClick={() => handleExcluir(animal.id)}
+            className={styles.btnExcluir}
+          >
+            <FaTrashAlt />{" "}
+            {animal.status === "pendente" ? "Reprovar" : "Excluir"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function Painel() {
   const [animais, setAnimais] = useState([]);
   const [carregando, setCarregando] = useState(true);
@@ -68,86 +147,6 @@ export default function Painel() {
     }
   };
 
-  const AnimalCard = ({ animal, isAdminView }) => (
-    <div className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img src={animal.fotos} alt={animal.nome} className={styles.foto} />
-        <span className={`${styles.badge} ${styles[animal.status]}`}>
-          {animal.status === "pendente" ? (
-            <FaHourglassHalf />
-          ) : (
-            <FaCheckCircle />
-          )}
-          {animal.status}
-        </span>
-      </div>
-
-      <div className={styles.info}>
-        <div className={styles.headerCard}>
-          <h3>{animal.nome}</h3>
-          <span className={styles.idade}>{animal.idade} meses</span>
-        </div>
-
-        <p className={styles.subtitulo}>
-          <MdOutlinePets /> <strong>{animal.especie}</strong> • {animal.sexo} •
-          Porte {animal.porte}
-        </p>
-
-        <p className={styles.localizacao}>
-          <FaMapMarkerAlt /> {animal.cidade}
-        </p>
-
-        <div className={styles.detalhes}>
-          <span
-            className={
-              animal.castrado === "sim" ? styles.check : styles.uncheck
-            }
-          >
-            <FaStethoscope />{" "}
-            {animal.castrado === "sim" ? "Castrado" : "Não castrado"}
-          </span>
-          <span
-            className={
-              animal.vacinado === "sim" ? styles.check : styles.uncheck
-            }
-          >
-            <FaSyringe />{" "}
-            {animal.vacinado === "sim" ? "Vacinado" : "Não vacinado"}
-          </span>
-        </div>
-
-        <p className={styles.descricao}>{animal.descricao}</p>
-
-        <a
-          href={`https://wa.me/${animal.whatsapp}`}
-          target="_blank"
-          rel="noreferrer"
-          className={styles.whatsapp}
-        >
-          <FaWhatsapp /> {animal.whatsapp}
-        </a>
-
-        <div className={styles.acoes}>
-          {isAdminView && animal.status === "pendente" && (
-            <button
-              onClick={() => handleAprovar(animal.id)}
-              className={styles.btnAprovar}
-            >
-              <FaCheckCircle /> Aprovar
-            </button>
-          )}
-          <button
-            onClick={() => handleExcluir(animal.id)}
-            className={styles.btnExcluir}
-          >
-            <FaTrashAlt />{" "}
-            {animal.status === "pendente" ? "Reprovar" : "Excluir"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-
   const pendentes = animais.filter((a) => a.status === "pendente");
   const aprovados = animais.filter((a) => a.status === "aprovado");
 
@@ -180,7 +179,13 @@ export default function Painel() {
         </h2>
         <div className={styles.grid}>
           {pendentes.map((animal) => (
-            <AnimalCard key={animal.id} animal={animal} isAdminView={true} />
+            <AnimalCard
+              key={animal.id}
+              animal={animal}
+              isAdminView={true}
+              handleAprovar={handleAprovar}
+              handleExcluir={handleExcluir}
+            />
           ))}
         </div>
       </section>
@@ -191,7 +196,13 @@ export default function Painel() {
         </h2>
         <div className={styles.grid}>
           {aprovados.map((animal) => (
-            <AnimalCard key={animal.id} animal={animal} isAdminView={false} />
+            <AnimalCard
+              key={animal.id}
+              animal={animal}
+              isAdminView={false}
+              handleAprovar={handleAprovar}
+              handleExcluir={handleExcluir}
+            />
           ))}
         </div>
       </section>

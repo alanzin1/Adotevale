@@ -1,0 +1,255 @@
+.detailMain {
+  min-height: 100vh;
+  padding: 4rem 4rem;
+  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  background: var(--bg);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.imageSection img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 500px;
+}
+
+.infoSection {
+  padding: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: var(--text-dark);
+}
+
+.badgeEspecie {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+.characteristics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.charItem {
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.charItem strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+}
+.charItem span {
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.health {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 2rem;
+}
+
+.yes {
+  color: #28a745;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.no {
+  color: #dc3545;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.description h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.description p {
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.contactCard {
+  padding: 2rem;
+  border-radius: 20px;
+}
+
+.btnWhatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: 0.3s;
+}
+
+.btnWhatsapp:hover {
+  transform: scale(1.02);
+}
+/* ... seu código anterior ... */
+
+/* Estilos Adicionais para Melhoria Visual */
+.loader,
+.error {
+  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-weight: bold;
+  color: var(--bg);
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 1024px) {
+  .detailMain {
+    padding: 2rem;
+  }
+  .container {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .detailMain {
+    padding: 0; /* Remove padding lateral no mobile para o fundo linear preencher tudo */
+    background: var(
+      --bg
+    ); /* Opcional: fundo sólido no mobile para melhor leitura */
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    border-radius: 0; /* Cards em tela cheia no mobile ficam mais modernos */
+    gap: 0;
+  }
+
+  .imageSection {
+    height: 50vh; /* Imagem ocupa 40% da altura da tela */
+    min-height: 300px;
+  }
+
+  .imageSection img {
+    min-height: unset; /* Remove o min-height de 500px do desktop */
+  }
+
+  .infoSection {
+    padding: 2rem 1.5rem;
+    border-radius: 30px 30px 0 0;
+    margin-top: -30px; /* Sobrepõe levemente a imagem para efeito premium */
+    background: var(--bg);
+    padding-bottom: 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .header h1 {
+    font-size: 2.2rem; /* Título menor para não quebrar linha */
+  }
+
+  .characteristics {
+    grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
+    gap: 8px; /* Espaço menor entre itens */
+  }
+
+  .charItem {
+    padding: 10px 5px;
+  }
+
+  .charItem strong {
+    font-size: 0.7rem;
+  }
+
+  .charItem span {
+    font-size: 0.9rem;
+  }
+
+  .health {
+    flex-direction: column; /* Vacinas uma embaixo da outra no celular */
+    gap: 10px;
+  }
+
+  .contactCard {
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .badgeEspecie {
+    order: -1; /* Coloca a espécie acima do nome no celular */
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .btnWhatsapp {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}

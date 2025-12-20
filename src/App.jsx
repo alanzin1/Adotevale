@@ -10,6 +10,8 @@ import ScrollToTop from "./utils/ScrollToTop";
 import Login from "./pages/login/Login";
 import Painel from "./pages/painel/Painel";
 import PrivateRoute from "./utils/PrivateRoute";
+import AnimalDetails from "./pages/animaldetails/AnimalDetails";
+import Catalogo from "./pages/catalago/Catalogo"; // 1. Importe a nova página
 
 function App() {
   return (
@@ -18,9 +20,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/catalogo" element={<Catalogo />} />{" "}
+        <Route path="/animal/:id" element={<AnimalDetails />} />
+        <Route path="/cadastro" element={<Formulario />} />
         <Route path="/termos" element={<Termos />} />
         <Route path="/privacidade" element={<Privacidade />} />
-        <Route path="/cadastro" element={<Formulario />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/painel"
