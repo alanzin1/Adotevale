@@ -51,25 +51,22 @@ export default function Formulario() {
               accept="image/*"
               onChange={handleFotos}
             />
-            <div className={styles.previewContainer}>
-              {previews.map((src, index) => (
-                <div key={index} className={styles.previewWrapper}>
-                  <img
-                    src={src}
-                    alt={`Preview ${index + 1}`}
-                    className={styles.previewImg}
-                  />
-                  <button
-                    type="button"
-                    className={styles.removeBtn}
-                    onClick={() => removerFoto(index)}
-                  >
-                    <FiX size={18} />
-                  </button>
-                </div>
-              ))}
-            </div>
           </label>
+
+          <div className={styles.previewContainer}>
+            {previews.map((src, index) => (
+              <div key={index} className={styles.previewWrapper}>
+                <img src={src} className={styles.previewImg} />
+                <button
+                  type="button"
+                  className={styles.removeBtn}
+                  onClick={() => removerFoto(index)}
+                >
+                  <FiX size={18} />
+                </button>
+              </div>
+            ))}
+          </div>
 
           <label>
             Nome do animal
