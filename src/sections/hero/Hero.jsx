@@ -23,7 +23,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/adotar" className={styles.button}>
+            <Link to="/catalogo" className={styles.button}>
               Quero adotar
             </Link>
           </motion.div>

@@ -23,9 +23,7 @@ import {
 import { MdOutlinePets } from "react-icons/md";
 import styles from "./Painel.module.css";
 
-// Movi o AnimalCard para fora para melhorar a performance e organização
 const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
-  // Lógica Robusta: Verifica se é o booleano true OU a string "true"
   const isCastrado = animal.castrado === true || animal.castrado === "true";
   const isVacinado = animal.vacinado === true || animal.vacinado === "true";
 

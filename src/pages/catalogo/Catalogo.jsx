@@ -17,7 +17,6 @@ export default function Catalogo() {
   const [animais, setAnimais] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Estados dos Filtros
   const [filtroEspecie, setFiltroEspecie] = useState("todos");
   const [filtroCidade, setFiltroCidade] = useState("todas");
   const [filtroSexo, setFiltroSexo] = useState("todos");
@@ -51,9 +50,7 @@ export default function Catalogo() {
     return () => unsubscribe();
   }, []);
 
-  // CORREÇÃO NA LÓGICA DE FILTRAGEM
   const animaisFiltrados = animais.filter((a) => {
-    // Converte os valores do banco para string para comparar com o valor do <select>
     const castradoStatus = a.castrado ? "true" : "false";
     const vacinadoStatus = a.vacinado ? "true" : "false";
 
@@ -88,7 +85,6 @@ export default function Catalogo() {
           </select>
         </div>
 
-        {/* Cidade */}
         <div className={styles.filtroGroup}>
           <label>
             <FaMapMarkerAlt /> Cidade
@@ -106,7 +102,6 @@ export default function Catalogo() {
           </select>
         </div>
 
-        {/* Sexo */}
         <div className={styles.filtroGroup}>
           <label>
             <FaVenusMars /> Sexo
@@ -121,7 +116,6 @@ export default function Catalogo() {
           </select>
         </div>
 
-        {/* Porte */}
         <div className={styles.filtroGroup}>
           <label>
             <FaRulerCombined /> Porte
@@ -137,7 +131,6 @@ export default function Catalogo() {
           </select>
         </div>
 
-        {/* Vacinado - CORREÇÃO NOS VALUES */}
         <div className={styles.filtroGroup}>
           <label>
             <FaSyringe /> Vacinado
@@ -152,7 +145,6 @@ export default function Catalogo() {
           </select>
         </div>
 
-        {/* Castrado - CORREÇÃO NOS VALUES */}
         <div className={styles.filtroGroup}>
           <label>
             <FaStethoscope /> Castrado
@@ -181,7 +173,6 @@ export default function Catalogo() {
               transition={{ duration: 0.3 }}
             >
               <div className={styles.imageBox}>
-                {/* Garantindo que usa a chave 'foto' (singular) */}
                 <img src={animal.foto} alt={animal.nome} />
                 <span className={styles.badgeSexo}>{animal.sexo}</span>
               </div>

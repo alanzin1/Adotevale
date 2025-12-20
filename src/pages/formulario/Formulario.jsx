@@ -254,10 +254,20 @@ export default function Formulario() {
             >
               <option value="">Selecione</option>
               <option>Aracati</option>
-              <option>Russas</option>
+              <option>Ererê</option>
+              <option>Iracema</option>
+              <option>Itaiçaba</option>
+              <option>Jaguaretama</option>
+              <option>Jaguaribara</option>
+              <option>Jaguaribe</option>
+              <option>Jaguaruana</option>
               <option>Limoeiro do Norte</option>
+              <option>Palhano</option>
+              <option>Pereiro</option>
+              <option>Potiretama</option>
               <option>Quixeré</option>
-              {/* Adicione outras cidades conforme sua necessidade */}
+              <option>Russas</option>
+              <option>Tabuleiro do Norte</option>
             </select>
           </label>
 

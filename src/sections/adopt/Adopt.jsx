@@ -85,7 +85,6 @@ export default function Adopt() {
         </div>
       </div>
 
-      {/* Ondas SVG */}
       <div className={styles.divider}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

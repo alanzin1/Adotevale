@@ -45,14 +45,12 @@ export default function AnimalDetails() {
       <div className={styles.error}>Animal não encontrado ou já adotado.</div>
     );
 
-  // Lógica de Saúde Blindada (converte para booleano real)
   const isVacinado = animal.vacinado === true || animal.vacinado === "true";
   const isCastrado = animal.castrado === true || animal.castrado === "true";
 
   return (
     <main className={styles.detailMain}>
       <div className={styles.container}>
-        {/* Lado Esquerdo: Imagem (CORREÇÃO: usando 'foto') */}
         <motion.div
           className={styles.imageSection}
           initial={{ opacity: 0, x: -30 }}
@@ -61,7 +59,6 @@ export default function AnimalDetails() {
           <img src={animal.foto} alt={animal.nome} />
         </motion.div>
 
-        {/* Lado Direito: Informações */}
         <motion.div
           className={styles.infoSection}
           initial={{ opacity: 0, x: 30 }}
@@ -91,7 +88,6 @@ export default function AnimalDetails() {
             </div>
           </div>
 
-          {/* CORREÇÃO: Lógica de saúde atualizada para booleanos */}
           <div className={styles.health}>
             <p className={isVacinado ? styles.yes : styles.no}>
               <FaSyringe /> {isVacinado ? "Vacinado" : "Não vacinado"}

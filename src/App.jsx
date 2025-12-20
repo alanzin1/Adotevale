@@ -11,7 +11,7 @@ import Login from "./pages/login/Login";
 import Painel from "./pages/painel/Painel";
 import PrivateRoute from "./utils/PrivateRoute";
 import AnimalDetails from "./pages/animaldetails/AnimalDetails";
-import Catalogo from "./pages/catalago/Catalogo"; // 1. Importe a nova página
+import Catalogo from "./pages/catalogo/Catalogo"; // 1. Importe a nova página
 
 function App() {
   return (
