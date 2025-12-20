@@ -4,7 +4,7 @@ import { FiX } from "react-icons/fi";
 import styles from "./Help.module.css";
 
 const PIX_KEY =
-  "00020126580014BR.GOV.BCB.PIX0136SUA-CHAVE-PIX-AQUI5204000053039865802BR5920Adotvale Projeto6009Jaguaribe62070503***6304ABCD";
+  "00020126580014br.gov.bcb.pix013620a16157-7a05-412d-be1a-b5b7dc9959405204000053039865802BR5925Alan Victor Soares Vieira6009Sao Paulo610901227-20062240520daqr252596265291220963041D5E";
 
 export default function Help() {
   const [open, setOpen] = useState(false);
@@ -93,7 +93,7 @@ export default function Help() {
               </p>
 
               <img
-                src="/qrcode.webp"
+                src="/qrcode.jpeg"
                 alt="QR Code Pix Adotevale"
                 className={styles.qr}
               />
