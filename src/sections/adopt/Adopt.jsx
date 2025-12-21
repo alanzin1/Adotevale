@@ -15,6 +15,12 @@ import styles from "./Adopt.module.css";
 export default function Adopt() {
   const [animais, setAnimais] = useState([]);
 
+  const formatarIdade = (idade) => {
+    if (idade === "" || idade == null) return "";
+
+    return idade === 1 ? "1 mês" : `${idade} meses`;
+  };
+
   useEffect(() => {
     const q = query(
       collection(db, "animals"),
@@ -61,7 +67,7 @@ export default function Adopt() {
                 <div className={styles.details}>
                   <h3>{animal.nome}</h3>
                   <div className={styles.infoBreve}>
-                    <span>{animal.idade} meses</span>
+                    <span>{formatarIdade(animal.idade)}</span>
                     <span>•</span>
                     <span>Porte {animal.porte}</span>
                   </div>

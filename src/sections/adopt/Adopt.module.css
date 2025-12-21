@@ -25,24 +25,19 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
-  justify-content: center;
+  justify-items: center;
 }
 
 .card {
-  background: white;
+  width: 260px;
+  height: 460px;
+  background: var(--bg);
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.4s ease;
   display: flex;
   flex-direction: column;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .imageBox {
@@ -78,11 +73,10 @@
 
 .details {
   padding: 1.5rem;
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
-
 .details h3 {
   font-size: 1.4rem;
   margin-bottom: 8px;
@@ -180,7 +174,6 @@
 .wave3 {
   opacity: 1;
 }
-
 @media (max-width: 768px) {
   .adopt {
     padding-left: 0;
@@ -193,11 +186,12 @@
 
   .grid {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     gap: 16px;
     padding: 10px 2rem 30px;
     justify-content: flex-start;
+    scroll-snap-type: x mandatory;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -208,9 +202,9 @@
   }
 
   .card {
-    min-width: 260px;
+    flex: 0 0 260px;
+    height: 420px;
     scroll-snap-align: center;
-    flex-shrink: 0;
   }
 
   .dividerSvg {

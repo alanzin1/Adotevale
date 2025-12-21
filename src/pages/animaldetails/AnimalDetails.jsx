@@ -17,6 +17,12 @@ export default function AnimalDetails() {
   const [animal, setAnimal] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const formatarIdade = (idade) => {
+    if (idade === "" || idade == null) return "";
+
+    return idade === 1 ? "1 mês" : `${idade} meses`;
+  };
+
   useEffect(() => {
     async function getAnimal() {
       try {
@@ -80,7 +86,7 @@ export default function AnimalDetails() {
             </div>
             <div className={styles.charItem}>
               <strong>Idade</strong>
-              <span>{animal.idade} meses</span>
+              <span>{formatarIdade(animal.idade)}</span>
             </div>
             <div className={styles.charItem}>
               <strong>Porte</strong>
@@ -108,12 +114,7 @@ export default function AnimalDetails() {
             <h3>Quer me adotar?</h3>
             <p>Entre em contato com o tutor responsável via WhatsApp:</p>
             <a
-              href={`https://wa.me/${animal.whatsapp?.replace(
-                /\D/g,
-                ""
-              )}?text=Olá! Vi o ${
-                animal.nome
-              } no Adotevale e gostaria de saber mais.`}
+              href={`https://wa.me/${animal.whatsapp}?text=Olá! Vi o ${animal.nome} no Adotevale e gostaria de saber mais.`}
               target="_blank"
               rel="noreferrer"
               className={styles.btnWhatsapp}

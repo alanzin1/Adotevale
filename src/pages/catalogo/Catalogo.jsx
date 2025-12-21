@@ -26,6 +26,12 @@ export default function Catalogo() {
 
   const [cidades, setCidades] = useState([]);
 
+  const formatarIdade = (idade) => {
+    if (idade === "" || idade == null) return "";
+
+    return idade === 1 ? "1 mês" : `${idade} meses`;
+  };
+
   useEffect(() => {
     const q = query(
       collection(db, "animals"),
@@ -67,7 +73,6 @@ export default function Catalogo() {
   return (
     <main className={styles.catalogoMain}>
       <section className={styles.filtros}>
-        {/* Espécie */}
         <div className={styles.filtroGroup}>
           <label>
             <MdOutlinePets /> Espécie
@@ -179,7 +184,7 @@ export default function Catalogo() {
               <div className={styles.details}>
                 <h3>{animal.nome}</h3>
                 <div className={styles.infoBreve}>
-                  <span>{animal.idade} meses</span>
+                  <span>{formatarIdade(animal.idade)}</span>
                   <span>•</span>
                   <span>Porte {animal.porte}</span>
                 </div>

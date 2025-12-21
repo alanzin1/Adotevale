@@ -23,9 +23,16 @@ import {
 import { MdOutlinePets } from "react-icons/md";
 import styles from "./Painel.module.css";
 
+const formatarIdade = (idade) => {
+  if (idade === "" || idade == null) return "";
+
+  return idade === 1 ? "1 mês" : `${idade} meses`;
+};
+
 const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
   const isCastrado = animal.castrado === true || animal.castrado === "true";
   const isVacinado = animal.vacinado === true || animal.vacinado === "true";
+  const [descricaoAberta, setDescricaoAberta] = useState(false);
 
   return (
     <div className={styles.card}>
@@ -44,7 +51,7 @@ const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
       <div className={styles.info}>
         <div className={styles.headerCard}>
           <h3>{animal.nome}</h3>
-          <span className={styles.idade}>{animal.idade} meses</span>
+          <span className={styles.idade}>{formatarIdade(animal.idade)}</span>
         </div>
 
         <p className={styles.subtitulo}>
@@ -65,10 +72,26 @@ const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
           </span>
         </div>
 
-        <p className={styles.descricao}>{animal.descricao}</p>
+        <p
+          className={`${styles.descricao} ${
+            descricaoAberta ? styles.descricaoExpandida : ""
+          }`}
+        >
+          {animal.descricao}
+        </p>
+
+        {isAdminView && animal.descricao.length > 120 && (
+          <button
+            type="button"
+            className={styles.lerMaisBtn}
+            onClick={() => setDescricaoAberta((prev) => !prev)}
+          >
+            {descricaoAberta ? "Fechar" : "Ler mais"}
+          </button>
+        )}
 
         <a
-          href={`https://wa.me/${animal.whatsapp?.replace(/\D/g, "")}`}
+          href={`https://wa.me/${animal.whatsapp}`}
           target="_blank"
           rel="noreferrer"
           className={styles.whatsapp}
@@ -101,6 +124,7 @@ const AnimalCard = ({ animal, isAdminView, handleAprovar, handleExcluir }) => {
 export default function Painel() {
   const [animais, setAnimais] = useState([]);
   const [carregando, setCarregando] = useState(true);
+
   const navigate = useNavigate();
 
   useEffect(() => {

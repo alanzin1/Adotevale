@@ -117,6 +117,9 @@
   line-height: 1.8;
   color: #555;
   margin-bottom: 2rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .contactCard {
@@ -142,9 +145,7 @@
 .btnWhatsapp:hover {
   transform: scale(1.02);
 }
-/* ... seu código anterior ... */
 
-/* Estilos Adicionais para Melhoria Visual */
 .loader,
 .error {
   background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
@@ -157,8 +158,6 @@
   color: var(--bg);
 }
 
-/* --- RESPONSIVIDADE --- */
-
 @media (max-width: 1024px) {
   .detailMain {
     padding: 2rem;
@@ -170,31 +169,29 @@
 
 @media (max-width: 768px) {
   .detailMain {
-    padding: 0; /* Remove padding lateral no mobile para o fundo linear preencher tudo */
-    background: var(
-      --bg
-    ); /* Opcional: fundo sólido no mobile para melhor leitura */
+    padding: 0;
+    background: var(--bg);
   }
 
   .container {
     grid-template-columns: 1fr;
-    border-radius: 0; /* Cards em tela cheia no mobile ficam mais modernos */
+    border-radius: 0;
     gap: 0;
   }
 
   .imageSection {
-    height: 50vh; /* Imagem ocupa 40% da altura da tela */
+    height: 50vh;
     min-height: 300px;
   }
 
   .imageSection img {
-    min-height: unset; /* Remove o min-height de 500px do desktop */
+    min-height: unset;
   }
 
   .infoSection {
     padding: 2rem 1.5rem;
     border-radius: 30px 30px 0 0;
-    margin-top: -30px; /* Sobrepõe levemente a imagem para efeito premium */
+    margin-top: -30px;
     background: var(--bg);
     padding-bottom: 5rem;
     position: relative;
@@ -202,12 +199,12 @@
   }
 
   .header h1 {
-    font-size: 2.2rem; /* Título menor para não quebrar linha */
+    font-size: 2.2rem;
   }
 
   .characteristics {
-    grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
-    gap: 8px; /* Espaço menor entre itens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
   .charItem {
@@ -223,7 +220,7 @@
   }
 
   .health {
-    flex-direction: column; /* Vacinas uma embaixo da outra no celular */
+    flex-direction: column;
     gap: 10px;
   }
 
@@ -241,7 +238,7 @@
   }
 
   .badgeEspecie {
-    order: -1; /* Coloca a espécie acima do nome no celular */
+    order: -1;
   }
 
   .header h1 {

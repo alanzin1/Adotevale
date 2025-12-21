@@ -137,11 +137,31 @@
   font-size: 0.9rem;
   color: #444;
   line-height: 1.4;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+.descricaoExpandida {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.lerMaisBtn {
+  background: none;
+  border: none;
+  color: blue;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 40px;
+  align-self: flex-start;
+}
+
+.lerMaisBtn:hover {
+  text-decoration: underline;
 }
 
 .whatsapp {

@@ -20,7 +20,7 @@ export default function Formulario() {
     nome: "",
     especie: "",
     sexo: "",
-    idade: 1,
+    idade: "",
     porte: "",
     castrado: false,
     vacinado: false,
@@ -30,9 +30,58 @@ export default function Formulario() {
     confirmacao: false,
     termos: false,
   });
+  const onlyNumbers = (value) => value.replace(/\D/g, "");
+
+  const normalizeBRPhone = (value) => {
+    let numbers = onlyNumbers(value);
+
+    if (numbers.length === 10 && numbers[2] !== "9") {
+      numbers = numbers.slice(0, 2) + "9" + numbers.slice(2);
+    }
+
+    return numbers.slice(0, 11);
+  };
+
+  const maskBRPhone = (numbers) => {
+    if (numbers.length <= 2) return numbers;
+
+    if (numbers.length <= 7) {
+      return `(${numbers.slice(0, 2)}) ${numbers.slice(2)}`;
+    }
+
+    return `(${numbers.slice(0, 2)}) ${numbers.slice(2, 7)}-${numbers.slice(
+      7
+    )}`;
+  };
+
+  const isValidWhatsApp = (value) => {
+    const numbers = onlyNumbers(value);
+    return numbers.length === 11 && numbers[2] === "9";
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    if (name === "descricao" && value.length > 200) return;
+
+    if (name === "whatsapp") {
+      const normalized = normalizeBRPhone(value);
+      setForm((prev) => ({
+        ...prev,
+        whatsapp: maskBRPhone(normalized),
+      }));
+      return;
+    }
+    if (name === "idade") {
+      const digits = value.replace(/\D/g, "");
+
+      setForm((prev) => ({
+        ...prev,
+        idade: digits === "" ? "" : Number(digits),
+      }));
+      return;
+    }
+
     setForm((prev) => ({
       ...prev,
       [name]:
@@ -40,8 +89,6 @@ export default function Formulario() {
           ? checked
           : name === "castrado" || name === "vacinado"
           ? value === "true"
-          : type === "number"
-          ? Number(value)
           : value,
     }));
   };
@@ -64,24 +111,37 @@ export default function Formulario() {
     e.preventDefault();
 
     if (!form.confirmacao || !form.termos) {
-      alert("Você precisa aceitar os termos e a declaração.");
+      setModalMessage("Você precisa aceitar os termos e a declaração");
+      setIsModalOpen(true);
       return;
     }
 
     if (!foto) {
-      alert("Por favor, envie uma foto do animal.");
+      setModalMessage("Por favor, envie uma foto do animal");
+      setIsModalOpen(true);
+      return;
+    }
+    if (!form.idade || form.idade < 1) {
+      setModalMessage("Informe a idade em meses (mínimo 1)");
+      setIsModalOpen(true);
+      return;
+    }
+
+    if (!isValidWhatsApp(form.whatsapp)) {
+      setModalMessage("Informe um número de WhatsApp válido com DDD");
+      setIsModalOpen(true);
       return;
     }
 
     setLoading(true);
 
     try {
-      // Upload da foto única
       const url = await uploadImage(foto);
 
-      // Objeto organizado para o Firestore
       const dadosParaEnviar = {
         ...form,
+        descricao: form.descricao.slice(0, 200),
+        whatsapp: `55${onlyNumbers(form.whatsapp)}`,
         foto: url,
         status: "pendente",
         createdAt: serverTimestamp(),
@@ -89,15 +149,16 @@ export default function Formulario() {
 
       await addDoc(collection(db, "animals"), dadosParaEnviar);
 
-      setModalMessage("Seu cadastro foi enviado com sucesso!");
+      setModalMessage(
+        "Animal cadastrado com sucesso! Nossa equipe irá analisar seu anúncio e publicá-lo em breve."
+      );
       setIsModalOpen(true);
 
-      // Reset de todos os campos
       setForm({
         nome: "",
         especie: "",
         sexo: "",
-        idade: 1,
+        idade: "",
         porte: "",
         castrado: false,
         vacinado: false,
@@ -111,7 +172,8 @@ export default function Formulario() {
       setPreview(null);
     } catch (err) {
       console.error(err);
-      alert("Erro ao enviar: " + err.message);
+      setModalMessage("Ocorreu um erro ao enviar. Tente novamente.");
+      setIsModalOpen(true);
     } finally {
       setLoading(false);
     }
@@ -194,9 +256,10 @@ export default function Formulario() {
           <label>
             Idade (meses)
             <input
-              type="number"
+              type="text"
               name="idade"
-              min="1"
+              inputMode="numeric"
+              placeholder="Ex: 2"
               value={form.idade}
               onChange={handleChange}
               required
@@ -275,22 +338,29 @@ export default function Formulario() {
             Descrição
             <textarea
               name="descricao"
-              placeholder="Conte sobre o temperamento..."
+              placeholder="Conte sobre o temperamento, comportamento, convivência..."
               value={form.descricao}
               onChange={handleChange}
               rows="3"
+              maxLength={200}
               required
             />
+            <span className={styles.charCount}>
+              {form.descricao.length} / 200
+            </span>
           </label>
 
           <label className={styles.fullWidth}>
-            WhatsApp
+            WhatsApp (para os interessados entrarem em contato)
             <input
+              type="tel"
               name="whatsapp"
               placeholder="(88) 99999-9999"
               value={form.whatsapp}
               onChange={handleChange}
               required
+              inputMode="numeric"
+              autoComplete="tel"
             />
           </label>
 
