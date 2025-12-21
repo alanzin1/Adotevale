@@ -21,13 +21,21 @@ export default function Privacidade() {
         </p>
 
         <ul>
-          <li>Informações sobre o animal (nome, idade aproximada, sexo)</li>
-          <li>Número de telefone/WhatsApp para contato</li>
+          <li>
+            Informações sobre o animal (nome, imagem, idade aproximada, sexo,
+            espécie, porte, status de vacinação e castração)
+          </li>
+          <li>
+            Número de telefone/WhatsApp do responsável pelo anúncio, utilizado
+            para contato com interessados e comunicação relacionada ao anúncio
+          </li>
         </ul>
-
         <p>
           O usuário declara possuir autorização para fornecer os dados
-          informados e assume total responsabilidade pela veracidade das
+          informados, estar ciente de que o número de WhatsApp será utilizado
+          tanto para contato com interessados quanto para comunicações do
+          AdoteVale relacionadas à análise, aprovação, moderação ou remoção do
+          anúncio, e assume total responsabilidade pela veracidade das
           informações.
         </p>
 
@@ -39,7 +47,15 @@ export default function Privacidade() {
           <li>
             Viabilizar o contato entre interessados e responsáveis pelo animal
           </li>
-          <li>Realizar análise, moderação e remoção de anúncios</li>
+          <li>
+            Realizar análise, moderação, aprovação e eventual remoção de
+            anúncios
+          </li>
+          <li>
+            Enviar comunicações relacionadas ao status do anúncio, incluindo
+            confirmação de aprovação, solicitações de ajuste ou retirada do
+            anúncio
+          </li>
           <li>Atender solicitações, denúncias ou obrigações legais</li>
         </ul>
 
@@ -48,7 +64,8 @@ export default function Privacidade() {
           O tratamento dos dados pessoais é realizado com base no consentimento
           do titular, manifestado de forma livre e inequívoca no momento do
           cadastro do animal e do aceite dos Termos de Uso e desta Política de
-          Privacidade.
+          Privacidade, incluindo o consentimento para o recebimento de
+          comunicações via WhatsApp relacionadas ao anúncio.
         </p>
 
         <h2>4. Compartilhamento e divulgação de dados</h2>
@@ -56,6 +73,12 @@ export default function Privacidade() {
           O AdoteVale não vende, aluga ou comercializa dados pessoais. O número
           de WhatsApp informado será exibido publicamente na plataforma com a
           única finalidade de permitir o contato para adoção.
+        </p>
+        <p>
+          Ao informar seu número de WhatsApp e cadastrar um anúncio, o usuário
+          concorda com a exibição pública desse contato e reconhece que
+          terceiros poderão entrar em contato diretamente, não sendo o AdoteVale
+          responsável pelo uso posterior dessas informações fora da plataforma.
         </p>
 
         <p>
@@ -76,7 +99,7 @@ export default function Privacidade() {
         <p>
           Os dados permanecerão armazenados enquanto o anúncio estiver ativo ou
           enquanto forem necessários para o cumprimento das finalidades
-          descritas nesta política.
+          descritas nesta Política de Privacidade.
         </p>
 
         <p>
@@ -123,8 +146,8 @@ export default function Privacidade() {
         </p>
 
         <p>
-          Ao utilizar o AdoteVale, você declara que leu, compreendeu e concorda
-          com esta Política de Privacidade.
+          Ao utilizar o AdoteVale, o usuário declara que leu, compreendeu e
+          concorda com esta Política de Privacidade.
         </p>
       </div>
     </main>

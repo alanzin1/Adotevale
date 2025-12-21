@@ -25,8 +25,8 @@ export default function Termos() {
         <p>
           O AdoteVale não exige criação de conta de usuário. O cadastro é
           realizado apenas para o animal, mediante o preenchimento de
-          informações como nome, sexo, idade aproximada e número de WhatsApp
-          para contato.
+          informações como nome, imagem, sexo, idade aproximada, espécie, porte,
+          status de vacinação, castração e número de WhatsApp para contato.
         </p>
 
         <ul>
@@ -61,11 +61,23 @@ export default function Termos() {
           para que o anúncio seja removido.
         </p>
 
-        <h2>4. Comunicação e exclusão de anúncios</h2>
+        <h2>4. Comunicação, aprovação e exclusão de anúncios</h2>
+        <p>
+          Todos os anúncios cadastrados no AdoteVale passam por uma análise
+          prévia antes da publicação.
+        </p>
+
+        <p>
+          Após a aprovação do anúncio, o AdoteVale poderá enviar uma mensagem de
+          confirmação para o número de WhatsApp informado no cadastro, para fins
+          de comunicação e moderação do anúncio.
+        </p>
+
         <p>
           Como não há contas de usuário, a exclusão de anúncios deve ser
           solicitada por meio de comunicação direta com o AdoteVale,
-          preferencialmente pelas redes sociais oficiais da plataforma.
+          preferencialmente pelas redes sociais oficiais ou pelo canal informado
+          na mensagem de aprovação.
         </p>
 
         <p>
@@ -77,9 +89,20 @@ export default function Termos() {
         <h2>5. Responsabilidade sobre o status do animal</h2>
         <p>
           É de responsabilidade exclusiva do anunciante informar ao AdoteVale
-          quando o animal for adotado. Caso o responsável não comunique a
-          adoção, o anúncio permanecerá ativo e o anunciante poderá continuar
-          recebendo mensagens e contatos via WhatsApp.
+          quando o animal for adotado, quando a doação for cancelada ou quando o
+          anúncio deixar de ser válido por qualquer motivo.
+        </p>
+
+        <p>
+          Caso a doação seja cancelada ou o animal não esteja mais disponível, o
+          responsável pelo anúncio compromete-se a comunicar o AdoteVale para
+          que o anúncio seja retirado de circulação.
+        </p>
+
+        <p>
+          Caso o responsável não realize essa comunicação, o anúncio permanecerá
+          ativo, e o anunciante poderá continuar recebendo mensagens e contatos
+          via WhatsApp.
         </p>
 
         <p>
@@ -118,9 +141,10 @@ export default function Termos() {
         </p>
 
         <p>
-          Ao utilizar o AdoteVale, você confirma que leu, entendeu e concorda
-          com estes Termos de Uso, assumindo total responsabilidade pelas
-          informações prestadas e pelas interações decorrentes do anúncio.
+          Ao utilizar o AdoteVale, o usuário confirma que leu, compreendeu e
+          concorda integralmente com estes Termos de Uso, assumindo total
+          responsabilidade pelas informações prestadas e pelas interações
+          decorrentes do anúncio.
         </p>
       </div>
     </main>
