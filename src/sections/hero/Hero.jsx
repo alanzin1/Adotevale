@@ -10,10 +10,11 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          NÃO PERCA MAIS TEMPO
-          <br />
-          ADOÇÃO VALE A PENA!
+          UM NOVO LAR <br />
+          MUDA TUDO
         </h1>
+
+        <p className={styles.subtitle}>Adote ou doe e faça a diferença hoje</p>
 
         <div className={styles.buttons}>
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
