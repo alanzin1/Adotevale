@@ -17,9 +17,8 @@ export default function About() {
 
           <p className={styles.text}>
             AdoteVale nasceu do amor pelos animais e do desejo de fazer a
-            diferença no Vale do Jaguaribe, no Ceará. Nosso objetivo é conectar
-            cães, gatos e outros animais a lares responsáveis e cheios de
-            carinho.
+            diferença no Vale do Jaguaribe. Nosso objetivo é conectar cães,
+            gatos e outros animais a lares responsáveis e cheios de carinho.
           </p>
         </motion.div>
 

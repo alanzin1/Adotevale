@@ -60,6 +60,9 @@
 }
 
 @media (max-width: 768px) {
+  .help {
+    padding: 6rem 1rem;
+  }
   .container {
     flex-direction: column;
     gap: 2.5rem;

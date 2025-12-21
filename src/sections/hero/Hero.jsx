@@ -10,7 +10,8 @@ export default function Hero() {
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          UM NOVO LAR <br />
+          UM NOVO LAR
+          <br />
           MUDA TUDO
         </h1>
 

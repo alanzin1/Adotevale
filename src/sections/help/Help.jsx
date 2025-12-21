@@ -29,7 +29,7 @@ export default function Help() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: false }}
           >
-            <h2 className={styles.title}>Ajude Nosso Site</h2>
+            <h2 className={styles.title}>Ajude nosso site</h2>
 
             <p className={styles.text}>
               AdoteVale é um projeto comunitário e sem fins lucrativos, criado
