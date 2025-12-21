@@ -165,4 +165,10 @@
   .dividerSvg {
     height: 40px;
   }
+  .content {
+    padding: 1rem;
+  }
+  .buttons {
+    gap: 1.5rem;
+  }
 }

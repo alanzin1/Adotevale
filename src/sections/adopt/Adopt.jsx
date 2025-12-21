@@ -84,10 +84,19 @@ export default function Adopt() {
         </div>
 
         <div className={styles.footer}>
-          <Link to="/catalogo" className={styles.btnMore}>
-            Veja mais pets
-            <FaArrowRight />
-          </Link>
+          <motion.div
+            animate={{ scale: [1, 1.03, 1] }}
+            transition={{
+              duration: 1.4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <Link to="/catalogo" className={styles.btnMore}>
+              Veja todos os pets
+              <FaArrowRight />
+            </Link>
+          </motion.div>
         </div>
       </div>
 

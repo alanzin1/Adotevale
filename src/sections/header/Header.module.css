@@ -41,7 +41,8 @@
 .logoImage {
   height: 45px;
   width: auto;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  will-change: transform, opacity;
 }
 
 .logoImage:hover {
@@ -63,7 +64,8 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
+  will-change: opacity;
 }
 
 .navDesktopBlack a,

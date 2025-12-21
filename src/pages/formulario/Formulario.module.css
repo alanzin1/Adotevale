@@ -160,8 +160,9 @@ input[type="checkbox"]:checked {
   font-size: 1.05rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   margin-top: 10px;
+  transition: background 0.5s ease;
+  will-change: background;
 }
 
 .buttonform:hover {

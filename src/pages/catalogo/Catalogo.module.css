@@ -177,11 +177,13 @@
   justify-content: center;
   gap: 10px;
   font-weight: 700;
-  transition: 0.3s;
+  transition: background 0.5s ease, transform 0.5s ease;
+  will-change: background, transform;
 }
 
 .btnLink:hover {
-  filter: brightness(1.1);
+  background: var(--accent-dark);
+  transform: scale(1.03);
 }
 .empty {
   color: var(--bg);
