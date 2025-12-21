@@ -181,8 +181,10 @@
 }
 @media (max-width: 768px) {
   .adopt {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 3rem 0rem 7rem;
+  }
+  .footer {
+    margin-top: 1rem;
   }
 
   .header {
