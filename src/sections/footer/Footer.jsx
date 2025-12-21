@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { FaEnvelope, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
@@ -36,16 +36,6 @@ export default function Footer() {
 
         <div className={styles.contact}>
           <h4>Contato</h4>
-          <p>
-            <FaWhatsapp size={20} />
-            <a
-              href="https://wa.me/5588999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              (88) 99999-9999
-            </a>
-          </p>
 
           <p>
             <FaEnvelope size={20} />
