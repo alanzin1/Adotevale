@@ -20,7 +20,7 @@ export default function Hero() {
         <div className={styles.buttons}>
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/cadastro" className={styles.buttonOutline}>
-              Quero doar
+              Doar animal
             </Link>
           </motion.div>
 
