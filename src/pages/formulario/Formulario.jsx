@@ -62,7 +62,7 @@ export default function Formulario() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (name === "descricao" && value.length > 200) return;
+    if (name === "descricao" && value.length > 250) return;
 
     if (name === "whatsapp") {
       const normalized = normalizeBRPhone(value);
@@ -342,11 +342,11 @@ export default function Formulario() {
               value={form.descricao}
               onChange={handleChange}
               rows="3"
-              maxLength={200}
+              maxLength={250}
               required
             />
             <span className={styles.charCount}>
-              {form.descricao.length} / 200
+              {form.descricao.length} / 250
             </span>
           </label>
 
