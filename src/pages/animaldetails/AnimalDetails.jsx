@@ -113,14 +113,24 @@ export default function AnimalDetails() {
           <div className={styles.contactCard}>
             <h3>Quer me adotar?</h3>
             <p>Entre em contato com o tutor responsável via WhatsApp:</p>
-            <a
-              href={`https://wa.me/${animal.whatsapp}?text=Olá! Vi o ${animal.nome} no Adotevale e gostaria de saber mais.`}
+
+            <motion.a
+              className={styles.btnWhatsapp}
+              href={`https://wa.me/${animal.whatsapp}?text=${encodeURIComponent(
+                `Olá! Vi o ${animal.nome} no AdoteVale e gostaria de saber mais.`
+              )}`}
               target="_blank"
               rel="noreferrer"
-              className={styles.btnWhatsapp}
+              animate={{ scale: [1, 1.01, 1] }}
+              transition={{
+                duration: 1.4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              <FaWhatsapp /> Conversar agora
-            </a>
+              <FaWhatsapp size={20} />
+              Conversar agora
+            </motion.a>
           </div>
         </motion.div>
       </div>

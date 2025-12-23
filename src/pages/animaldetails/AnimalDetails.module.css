@@ -67,7 +67,7 @@
 }
 
 .charItem {
-  background: white;
+  background: var(--accent);
   padding: 15px;
   border-radius: 15px;
   text-align: center;
@@ -76,12 +76,12 @@
 .charItem strong {
   display: block;
   font-size: 0.8rem;
-  color: var(--text-dark);
+  color: white;
   text-transform: uppercase;
 }
 .charItem span {
   font-weight: 400;
-  color: var(--text-dark);
+  color: var(--bg);
 }
 
 .health {
@@ -132,18 +132,22 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
   background: #25d366;
-  color: white;
+  color: var(--bg);
   text-decoration: none;
+
   padding: 15px;
   border-radius: 12px;
   font-weight: bold;
-  margin-top: 1rem;
-  transition: 0.3s;
-}
 
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.5s ease;
+  will-change: background;
+}
 .btnWhatsapp:hover {
-  transform: scale(1.02);
+  background: #28a745;
 }
 
 .loader,
