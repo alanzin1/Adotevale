@@ -316,20 +316,20 @@ export default function Formulario() {
               required
             >
               <option value="">Selecione</option>
-              <option>Aracati</option>
+              <option>Alto Santo</option>
               <option>Ererê</option>
               <option>Iracema</option>
-              <option>Itaiçaba</option>
               <option>Jaguaretama</option>
               <option>Jaguaribara</option>
               <option>Jaguaribe</option>
-              <option>Jaguaruana</option>
               <option>Limoeiro do Norte</option>
+              <option>Morada Nova</option>
               <option>Palhano</option>
               <option>Pereiro</option>
               <option>Potiretama</option>
               <option>Quixeré</option>
               <option>Russas</option>
+              <option>São João do Jaguaribe</option>
               <option>Tabuleiro do Norte</option>
             </select>
           </label>
