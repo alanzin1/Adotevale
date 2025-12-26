@@ -204,11 +204,11 @@ export default function Catalogo() {
           {animaisFiltrados.map((animal) => (
             <motion.div
               key={animal.id}
-              layout
+              layout={!isMobile}
               className={styles.card}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
+              exit={{ opacity: 0, scale: 0.9 }}
             >
               <div className={styles.imageBox}>
                 <img src={animal.foto} alt={animal.nome} />
