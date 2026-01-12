@@ -20,7 +20,7 @@ export default function Help() {
 
   return (
     <>
-      <section id="help" className={styles.help}>
+      <section id="ajuda" className={styles.help}>
         <div className={styles.container}>
           <motion.div
             className={styles.content}

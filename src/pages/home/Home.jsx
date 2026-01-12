@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 import About from "../../sections/about/About";
 import Adopt from "../../sections/adopt/Adopt";
-import Help from "../../sections/help/Help";
 import Hero from "../../sections/hero/Hero";
 import styles from "./Home.module.css";
 
@@ -25,7 +24,6 @@ export default function Home() {
       <Hero />
       <About />
       <Adopt />
-      <Help />
     </main>
   );
 }

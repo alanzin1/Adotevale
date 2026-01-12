@@ -5,9 +5,6 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.bg3} aria-hidden />
-      <div className={styles.bg4} aria-hidden />
-
       <div className={styles.content}>
         <h1 className={styles.title}>
           UM NOVO LAR

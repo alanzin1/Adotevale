@@ -8,16 +8,24 @@ import logoWhite from "/logo-white.webp";
 import logoDark from "/logo-black.webp";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [black, setBlack] = useState(false);
-
   const navigate = useNavigate();
   const location = useLocation();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const forceBlackRoutes = ["/ajuda", "/privacidade", "/termos"];
+
+  const isForcedBlack = forceBlackRoutes.includes(location.pathname);
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => !prev);
   }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,37 +39,45 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setBlack(window.scrollY > 70);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  function goToSection(sectionId) {
-    setIsMenuOpen(false);
-
-    if (location.pathname === "/") {
-      const el = document.getElementById(sectionId);
-      el?.scrollIntoView({ behavior: "smooth" });
+    if (location.pathname !== "/" || isForcedBlack) {
+      setIsScrolled(false);
       return;
     }
 
-    navigate("/", {
-      state: { scrollTo: sectionId },
-    });
-  }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 70);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname, isForcedBlack]);
+
+  const goToSection = useCallback(
+    (sectionId) => {
+      setIsMenuOpen(false);
+
+      if (location.pathname === "/") {
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      navigate("/", { state: { scrollTo: sectionId } });
+    },
+    [location.pathname, navigate]
+  );
 
   const menuLinks = [
     { type: "route", to: "/", text: "Home" },
     { type: "section", id: "about", text: "Sobre nós" },
     { type: "route", to: "/catalogo", text: "Adotar" },
     { type: "route", to: "/cadastro", text: "Doar" },
-    { type: "section", id: "help", text: "Ajudar" },
+    { type: "route", to: "/ajuda", text: "Ajudar" },
   ];
 
-  const isHeaderBlack = black || isMenuOpen;
+  const isHeaderBlack = isForcedBlack || isScrolled || isMenuOpen;
 
   return (
     <header className={`${styles.header} ${isHeaderBlack ? styles.black : ""}`}>
@@ -124,7 +140,7 @@ export default function Header() {
               <nav className={styles.nav}>
                 {menuLinks.map((link) =>
                   link.type === "route" ? (
-                    <Link key={link.text} to={link.to} onClick={toggleMenu}>
+                    <Link key={link.text} to={link.to}>
                       {link.text}
                     </Link>
                   ) : (
