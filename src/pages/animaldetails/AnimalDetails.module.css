@@ -152,7 +152,7 @@
 
 .loader,
 .error {
-  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
+  background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
 
   display: flex;
   justify-content: center;
