@@ -39,8 +39,8 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (location.pathname !== "/" || isForcedBlack) {
-      setIsScrolled(false);
+    if (isForcedBlack) {
+      setIsScrolled(true);
       return;
     }
 
@@ -50,6 +50,7 @@ export default function Header() {
 
     handleScroll();
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname, isForcedBlack]);
 
