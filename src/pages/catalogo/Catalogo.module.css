@@ -1,7 +1,7 @@
 .catalogoMain {
   min-height: 100vh;
   padding: 8rem 5% 4rem;
-  background: linear-gradient(to bottom, #0e1d14, var(--accent-dark), #0e1d14);
+  background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
   display: flex;
   flex-direction: column;
   align-items: center;
