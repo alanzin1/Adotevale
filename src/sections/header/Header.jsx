@@ -15,7 +15,7 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const forceBlackRoutes = ["/ajuda", "/privacidade", "/termos"];
+  const forceBlackRoutes = ["/ajuda", "/privacidade", "/termos", "/painel"];
 
   const isForcedBlack = forceBlackRoutes.includes(location.pathname);
 
