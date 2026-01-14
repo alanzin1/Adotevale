@@ -1,6 +1,7 @@
 .detailMain {
   min-height: 100vh;
-  padding: 4rem 4rem;
+  padding: 1rem 4rem;
+  position: relative;
   background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
   display: flex;
   justify-content: center;
@@ -161,7 +162,36 @@
   font-weight: bold;
   color: var(--bg);
 }
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 3;
+}
 
+.dividerSvg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: var(--accent-dark);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+.wave2 {
+  opacity: 0.5;
+}
+.wave3 {
+  opacity: 1;
+}
 @media (max-width: 1024px) {
   .detailMain {
     padding: 2rem;
@@ -252,5 +282,8 @@
   .btnWhatsapp {
     padding: 12px;
     font-size: 0.95rem;
+  }
+  .dividerSvg {
+    height: 40px;
   }
 }
