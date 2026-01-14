@@ -1,5 +1,6 @@
 .pagetp {
   background: var(--bg);
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,6 +52,37 @@
   border-radius: 4px;
 }
 
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: var(--accent-dark);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+.wave2 {
+  opacity: 0.5;
+}
+.wave3 {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 100px 1.2rem 3rem;
@@ -67,5 +99,9 @@
   .container p,
   .container li {
     font-size: 0.95rem;
+  }
+
+  .dividerSvg {
+    height: 40px;
   }
 }

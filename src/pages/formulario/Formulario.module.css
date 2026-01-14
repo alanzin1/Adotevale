@@ -1,5 +1,6 @@
 .pageForm {
   min-height: 100vh;
+  position: relative;
   background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
   padding: 8rem 1rem;
   display: flex;
@@ -170,9 +171,41 @@ input[type="checkbox"]:checked {
   background-color: var(--accent-dark);
 }
 
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: var(--accent-dark);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+.wave2 {
+  opacity: 0.5;
+}
+.wave3 {
+  opacity: 1;
+}
+
 @media (max-width: 600px) {
   .pageForm {
     padding: 3rem 1rem;
+    padding-bottom: 8rem;
     align-items: flex-start;
   }
   .previewContainer {
@@ -196,10 +229,7 @@ input[type="checkbox"]:checked {
   .container h1 {
     font-size: 1.5rem;
   }
-}
-
-@media (min-width: 768px) {
-  .pageForm {
-    padding: 8rem 3rem;
+  .dividerSvg {
+    height: 40px;
   }
 }

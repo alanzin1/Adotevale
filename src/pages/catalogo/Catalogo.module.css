@@ -1,5 +1,6 @@
 .catalogoMain {
   min-height: 100vh;
+  position: relative;
   padding: 8rem 5% 4rem;
   background: linear-gradient(to bottom, var(--accent-dark), var(--accent));
   display: flex;
@@ -93,6 +94,37 @@
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+}
+
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.dividerSvg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  transform: rotate(180deg);
+}
+
+.shape {
+  fill: var(--accent-dark);
+}
+
+.wave1 {
+  opacity: 0.25;
+}
+.wave2 {
+  opacity: 0.5;
+}
+.wave3 {
+  opacity: 1;
 }
 
 @media (hover: hover) {
@@ -247,6 +279,9 @@
     font-size: 0.85rem;
     border-radius: 10px;
   }
+  .dividerSvg {
+    height: 40px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -256,5 +291,8 @@
 
   .details h3 {
     font-size: 1rem;
+  }
+  .dividerSvg {
+    height: 40px;
   }
 }

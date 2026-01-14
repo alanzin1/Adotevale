@@ -1,5 +1,7 @@
 .help {
   min-height: 100vh;
+  position: relative;
+
   background-color: var(--bg);
   padding: 0rem 2rem;
   display: flex;
@@ -55,36 +57,39 @@
 
 .image {
   flex: 1;
-  max-width: 340px;
-  width: 100%;
+  width: 200px;
   height: auto;
 }
 
-@media (max-width: 768px) {
-  .help {
-    padding: 6rem 1rem;
-  }
-  .container {
-    flex-direction: column;
-    gap: 2.5rem;
-  }
+.divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
 
-  .title {
-    text-align: center;
-  }
+.dividerSvg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  transform: rotate(180deg);
+}
 
-  .text {
-    max-width: 100%;
-  }
+.shape {
+  fill: var(--accent-dark);
+}
 
-  .button {
-    display: block;
-    margin: 2rem auto 0;
-  }
-
-  .image {
-    max-width: 240px;
-  }
+.wave1 {
+  opacity: 0.25;
+}
+.wave2 {
+  opacity: 0.5;
+}
+.wave3 {
+  opacity: 1;
 }
 
 .modalOverlay {
@@ -166,14 +171,42 @@
   font-size: 0.75rem;
   color: #666;
 }
+@media (max-width: 768px) {
+  .help {
+    padding: 6rem 1rem;
+  }
+  .container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
 
+  .title {
+    text-align: center;
+  }
+
+  .text {
+    max-width: 100%;
+  }
+
+  .button {
+    display: block;
+    margin: 2rem auto 0;
+  }
+}
 @media (max-width: 480px) {
   .modal {
     margin: 1rem;
     padding: 1.5rem;
   }
+  .image {
+    width: 100%;
+  }
 
   .qr {
     width: 180px;
+  }
+
+  .dividerSvg {
+    height: 40px;
   }
 }
