@@ -12,7 +12,6 @@ import Painel from "./pages/painel/Painel";
 import PrivateRoute from "./utils/PrivateRoute";
 import AnimalDetails from "./pages/animaldetails/AnimalDetails";
 import Catalogo from "./pages/catalogo/Catalogo";
-import Help from "./pages/help/Help";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/animal/:id" element={<AnimalDetails />} />
         <Route path="/cadastro" element={<Formulario />} />
-        <Route path="/ajuda" element={<Help />} />
         <Route path="/termos" element={<Termos />} />
         <Route path="/privacidade" element={<Privacidade />} />
         <Route path="/login" element={<Login />} />
