@@ -51,7 +51,6 @@
 .terms a {
   display: block;
   color: var(--bg);
-  margin-bottom: 0.4rem;
   font-size: 0.95rem;
   text-decoration: none;
   transition: opacity 0.3s;
