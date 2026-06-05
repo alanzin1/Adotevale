@@ -5,10 +5,6 @@ export const uploadImage = async (file) => {
     throw new Error("Arquivo inválido");
   }
 
-  if (file.size > 2 * 1024 * 1024) {
-    throw new Error("Imagem maior que 2MB");
-  }
-
   const formData = new FormData();
   formData.append("image", file);
 
