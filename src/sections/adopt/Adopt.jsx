@@ -9,8 +9,9 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Adopt.module.css";
+import { FaPaw } from "react-icons/fa6";
 
 export default function Adopt() {
   const [animais, setAnimais] = useState([]);
@@ -43,7 +44,12 @@ export default function Adopt() {
     <section id="adopt" className={styles.adopt}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2>Encontre seu novo amigo</h2>
+          <h5 className={styles.span}>
+            <FaPaw size={20} />
+            <span>Encontre seu novo amigo</span>
+          </h5>
+
+          <h1 className={styles.title}>Animais disponiveis para adoção</h1>
         </div>
 
         <div className={styles.grid}>
@@ -67,8 +73,7 @@ export default function Adopt() {
                   <h3>{animal.nome}</h3>
                   <div className={styles.infoBreve}>
                     <span>{formatarIdade(animal.idade)}</span>
-                    <span>•</span>
-                    <span>Porte {animal.porte}</span>
+                    <span>• Porte {animal.porte}</span>
                   </div>
                   <p className={styles.cidadeText}>
                     <FaMapMarkerAlt /> {animal.cidade}
@@ -93,7 +98,6 @@ export default function Adopt() {
           >
             <Link to="/catalogo" className={styles.btnMore}>
               Veja todos os pets
-              <FaArrowRight />
             </Link>
           </motion.div>
         </div>

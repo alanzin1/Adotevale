@@ -50,7 +50,7 @@ export default function Catalogo() {
   useEffect(() => {
     const q = query(
       collection(db, "animals"),
-      where("status", "==", "aprovado")
+      where("status", "==", "aprovado"),
     );
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -219,8 +219,7 @@ export default function Catalogo() {
                 <h3>{animal.nome}</h3>
                 <div className={styles.infoBreve}>
                   <span>{formatarIdade(animal.idade)}</span>
-                  <span>•</span>
-                  <span>Porte {animal.porte}</span>
+                  <span>• Porte {animal.porte}</span>
                 </div>
                 <p className={styles.cidadeText}>
                   <FaMapMarkerAlt /> {animal.cidade}

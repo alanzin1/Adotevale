@@ -56,7 +56,7 @@
   font-weight: 800;
 }
 .text {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   font-weight: 200;
   color: var(--text-dark);
@@ -95,7 +95,7 @@
 
 .feature h4 {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-dark);
   line-height: 1.35;
   max-width: 120px;
@@ -164,6 +164,7 @@
 
   .text {
     max-width: 100%;
+    font-size: 1rem;
   }
 
   .image {

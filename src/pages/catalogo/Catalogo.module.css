@@ -6,6 +6,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+.catalogoMain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/paw-3-svgrepo-com.svg");
+  background-repeat: repeat;
+  background-size: 200px;
+
+  opacity: 0.05;
+  pointer-events: none;
+
+  z-index: 0;
+}
+.filtros,
+.filtroToggle,
+.grid,
+.empty {
+  position: relative;
+  z-index: 1;
 }
 
 .filtros {
@@ -271,7 +293,8 @@
   }
 
   .infoBreve {
-    font-size: 0.75rem;
+    gap: 4px;
+    font-size: 0.5rem;
   }
 
   .cidadeText {
@@ -280,6 +303,7 @@
   }
 
   .btnLink {
+    padding: 10px;
     padding: 10px;
     font-size: 0.85rem;
     border-radius: 10px;

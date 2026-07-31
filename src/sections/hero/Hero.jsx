@@ -31,15 +31,15 @@ export default function Hero() {
         <div className={styles.buttons}>
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/catalogo" className={styles.button}>
-              <LuPawPrint size={20} />
               <span>Quero adotar</span>
+              <LuPawPrint size={20} />
             </Link>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/cadastro" className={styles.buttonOutline}>
-              <LuHeart size={20} className={styles.heartIcon} />
               <span>Doar animal</span>
+              <LuHeart size={20} className={styles.heartIcon} />
             </Link>
           </motion.div>
         </div>
