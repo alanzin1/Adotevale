@@ -15,6 +15,7 @@ export default function Hero() {
           <span>transforma</span>
           <br />
           vidas
+          <LuHeart className={styles.heartTitle} />
         </h1>
 
         <p className={styles.subtitle}>
