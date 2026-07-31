@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import styles from "./About.module.css";
 import { FaPaw } from "react-icons/fa6";
 import { LuShieldCheck, LuHeart, LuUsers, LuHouse } from "react-icons/lu";
-
+import { LuHeartHandshake } from "react-icons/lu";
 import logo from "/banner.webp";
 
 export default function About() {
@@ -17,7 +17,7 @@ export default function About() {
           viewport={{ once: false }}
         >
           <h5 className={styles.span}>
-            <FaPaw size={20} />
+            <LuHeartHandshake size={20} />
             <span>Sobre nós</span>
           </h5>
 

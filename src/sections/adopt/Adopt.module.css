@@ -52,13 +52,6 @@
   gap: 12px;
 }
 
-.span span::after {
-  content: "";
-  width: 100px;
-  height: 1px;
-  background-color: currentColor;
-  border-radius: 999px;
-}
 .title {
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 800;
@@ -239,9 +232,7 @@
     justify-content: center;
     font-size: 1rem;
   }
-  .span span::after {
-    display: none;
-  }
+
   .header {
     padding: 0.5rem;
     margin-bottom: 1rem;

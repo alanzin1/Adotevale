@@ -7,7 +7,23 @@
   justify-content: center;
   align-items: center;
 }
+.detailMain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
 
+  background-image: url("/paw-3-svgrepo-com.svg");
+  background-repeat: repeat;
+  background-size: 200px;
+
+  opacity: 0.05;
+  pointer-events: none;
+
+  z-index: 0;
+}
+.container {
+  z-index: 2;
+}
 .container {
   width: 100%;
   max-width: 1200px;
@@ -205,6 +221,9 @@
   .detailMain {
     padding: 0;
     background: var(--bg);
+  }
+  .detailMain::before {
+    display: none;
   }
 
   .container {

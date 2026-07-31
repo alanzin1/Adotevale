@@ -9,11 +9,6 @@ export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.content}>
-        <h5 className={styles.span}>
-          <FaPaw size={20} />
-          <span>Novo lar</span>
-        </h5>
-
         <h1 className={styles.title}>
           Amor que
           <br />
@@ -31,15 +26,15 @@ export default function Hero() {
         <div className={styles.buttons}>
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/catalogo" className={styles.button}>
-              <span>Quero adotar</span>
               <LuPawPrint size={20} />
+              <span>Quero Adotar</span>
             </Link>
           </motion.div>
 
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/cadastro" className={styles.buttonOutline}>
-              <span>Doar animal</span>
               <LuHeart size={20} className={styles.heartIcon} />
+              <span>Quero Doar</span>
             </Link>
           </motion.div>
         </div>

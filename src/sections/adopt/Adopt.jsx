@@ -49,7 +49,7 @@ export default function Adopt() {
             <span>Encontre seu novo amigo</span>
           </h5>
 
-          <h1 className={styles.title}>Animais disponiveis para adoção</h1>
+          <h1 className={styles.title}>Animais disponíveis para adoção</h1>
         </div>
 
         <div className={styles.grid}>
