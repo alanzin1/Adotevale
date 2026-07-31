@@ -10,11 +10,9 @@ export default function Hero() {
     <section id="hero" className={styles.hero}>
       <div className={styles.content}>
         <h1 className={styles.title}>
-          Amor que
+          Um novo lar
           <br />
-          <span>transforma</span>
-          <br />
-          vidas
+          muda <span>tudo</span>
           <LuHeart className={styles.heartTitle} />
         </h1>
 
