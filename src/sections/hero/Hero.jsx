@@ -1,28 +1,45 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { LuPawPrint, LuHeart } from "react-icons/lu";
+import { FaPaw } from "react-icons/fa6";
+import { FaHeartCircleCheck } from "react-icons/fa6";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.content}>
+        <h5 className={styles.span}>
+          <FaPaw size={20} />
+          <span>Novo lar</span>
+        </h5>
+
         <h1 className={styles.title}>
-          UM NOVO LAR
+          Amor que
           <br />
-          MUDA TUDO
+          <span>transforma</span>
+          <br />
+          vidas
         </h1>
 
-        <p className={styles.subtitle}>Adote ou doe e faça a diferença hoje</p>
+        <p className={styles.subtitle}>
+          Conectamos animais a lares cheio de amor e carinho.
+          <br />
+          Adote ou doe e faça a diferença hoje!
+        </p>
 
         <div className={styles.buttons}>
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/catalogo" className={styles.button}>
-              Quero adotar
+              <LuPawPrint size={20} />
+              <span>Quero adotar</span>
             </Link>
           </motion.div>
+
           <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.95 }}>
             <Link to="/cadastro" className={styles.buttonOutline}>
-              Doar animal
+              <LuHeart size={20} className={styles.heartIcon} />
+              <span>Doar animal</span>
             </Link>
           </motion.div>
         </div>

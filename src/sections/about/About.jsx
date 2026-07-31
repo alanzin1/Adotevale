@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import styles from "./About.module.css";
-import logo from "/logo.webp";
+import { FaPaw } from "react-icons/fa6";
+import { LuShieldCheck, LuHeart, LuUsers, LuHouse } from "react-icons/lu";
+
+import logo from "/banner.webp";
 
 export default function About() {
   return (
@@ -13,13 +16,58 @@ export default function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false }}
         >
-          <h2 className={styles.title}>Sobre nós</h2>
+          <h5 className={styles.span}>
+            <FaPaw size={20} />
+            <span>Sobre nós</span>
+          </h5>
+
+          <h1 className={styles.title}>
+            Mais que adoção
+            <br />
+            um <span>propósito</span>
+          </h1>
 
           <p className={styles.text}>
             AdoteVale nasceu do amor pelos animais e do desejo de fazer a
             diferença no Vale do Jaguaribe. Nosso objetivo é conectar cães,
             gatos e outros animais a lares responsáveis e cheios de carinho.
           </p>
+          <div className={styles.features}>
+            <div className={styles.feature}>
+              <div className={styles.icon}>
+                <LuShieldCheck size={30} />
+              </div>
+
+              <h4>Adoção Responsável</h4>
+            </div>
+
+            <div className={styles.feature}>
+              <div className={styles.icon}>
+                <LuHeart size={30} />
+              </div>
+
+              <h4>Bem-estar Animal</h4>
+            </div>
+
+            <div className={styles.feature}>
+              <div className={styles.icon}>
+                <LuUsers size={30} />
+              </div>
+
+              <h4>Comunidade Consciente</h4>
+            </div>
+            <div className={styles.feature}>
+              <div className={styles.icon}>
+                <LuHouse size={30} />
+              </div>
+
+              <h4>
+                Novo
+                <br />
+                Lar
+              </h4>
+            </div>
+          </div>
         </motion.div>
 
         <motion.img
