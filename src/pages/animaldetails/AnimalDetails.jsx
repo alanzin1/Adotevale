@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { motion } from "framer-motion";
 import {
   FaWhatsapp,
   FaMapMarkerAlt,
@@ -57,19 +56,11 @@ export default function AnimalDetails() {
   return (
     <main className={styles.detailMain}>
       <div className={styles.container}>
-        <motion.div
-          className={styles.imageSection}
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
+        <div className={styles.imageSection}>
           <img src={animal.foto} alt={animal.nome} />
-        </motion.div>
+        </div>
 
-        <motion.div
-          className={styles.infoSection}
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-        >
+        <div className={styles.infoSection}>
           <div className={styles.header}>
             <h1>{animal.nome}</h1>
             <span className={styles.badgeEspecie}>{animal.especie}</span>
@@ -114,10 +105,10 @@ export default function AnimalDetails() {
             <h3>Quer me adotar?</h3>
             <p>Entre em contato com o tutor responsável via WhatsApp:</p>
 
-            <motion.a
+            <a
               className={styles.btnWhatsapp}
               href={`https://wa.me/${animal.whatsapp}?text=${encodeURIComponent(
-                `Olá! Vi o ${animal.nome} no AdoteVale e gostaria de saber mais.`
+                `Olá! Vi o ${animal.nome} no AdoteVale e gostaria de saber mais.`,
               )}`}
               target="_blank"
               rel="noreferrer"
@@ -130,9 +121,9 @@ export default function AnimalDetails() {
             >
               <FaWhatsapp size={20} />
               Conversar agora
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
       <div className={styles.divider}>
         <svg

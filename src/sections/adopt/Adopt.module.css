@@ -175,21 +175,33 @@
   border-radius: 50px;
   text-decoration: none;
   font-weight: 800;
-  display: flex;
   text-transform: uppercase;
-  align-items: center;
-  gap: 12px;
+
   transition:
-    transform 0.5s ease,
-    opacity 0.5s ease;
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
   will-change: transform;
+
+  animation: pulse 2s infinite;
 }
 
 .btnMore:hover {
-  transform: translateY(-3px);
+  animation-play-state: paused;
+  transform: scale(1.06) translateY(-3px);
   opacity: 0.8;
 }
 
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
 .divider {
   position: absolute;
   bottom: -1px;

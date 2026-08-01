@@ -8,7 +8,6 @@ import {
   limit,
   onSnapshot,
 } from "firebase/firestore";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Adopt.module.css";
 import { FaPaw } from "react-icons/fa6";
@@ -53,17 +52,9 @@ export default function Adopt() {
         </div>
 
         <div className={styles.grid}>
-          <AnimatePresence>
-            {animais.map((animal) => (
-              <motion.div
-                key={animal.id}
-                className={styles.card}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.3 }}
-              >
+          {animais.map((animal) => (
+            <Link key={animal.id} to={`/animal/${animal.id}`}>
+              <div className={styles.card}>
                 <div className={styles.imageBox}>
                   <img src={animal.foto} alt={animal.nome} />
                   <span className={styles.badgeSexo}>{animal.sexo}</span>
@@ -78,28 +69,17 @@ export default function Adopt() {
                   <p className={styles.cidadeText}>
                     <FaMapMarkerAlt /> {animal.cidade}
                   </p>
-                  <Link to={`/animal/${animal.id}`} className={styles.btnLink}>
-                    Ver Detalhes
-                  </Link>
+                  <div className={styles.btnLink}>Ver Detalhes</div>
                 </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <div className={styles.footer}>
-          <motion.div
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{
-              duration: 1.4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <Link to="/catalogo" className={styles.btnMore}>
-              Veja todos os pets
-            </Link>
-          </motion.div>
+          <Link to="/catalogo" className={styles.btnMore}>
+            Veja todos os pets
+          </Link>
         </div>
       </div>
 

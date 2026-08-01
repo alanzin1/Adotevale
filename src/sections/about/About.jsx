@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import styles from "./About.module.css";
 import { FaPaw } from "react-icons/fa6";
 import { LuShieldCheck, LuHeart, LuUsers, LuHouse } from "react-icons/lu";
@@ -9,13 +8,7 @@ export default function About() {
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
-        <motion.div
-          className={styles.content}
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false }}
-        >
+        <div className={styles.content}>
           <h5 className={styles.span}>
             <LuHeartHandshake size={20} />
             <span>Sobre nós</span>
@@ -68,16 +61,12 @@ export default function About() {
               </h4>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.img
+        <img
           src={logo}
           alt="Cachorro e gato representando amor e adoção"
           className={styles.image}
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          viewport={{ once: false }}
         />
       </div>
 

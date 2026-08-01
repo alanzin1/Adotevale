@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { collection, query, where, onSnapshot } from "firebase/firestore";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   FaMapMarkerAlt,
   FaVenusMars,
@@ -96,142 +95,128 @@ export default function Catalogo() {
         </div>
       )}
 
-      <AnimatePresence>
-        {(!isMobile || filtrosAbertos) && (
-          <motion.section
-            className={styles.filtros}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0 }}
-          >
-            <div className={styles.filtroGroup}>
-              <label>
-                <MdOutlinePets /> Espécie
-              </label>
-              <select
-                value={filtroEspecie}
-                onChange={(e) => setFiltroEspecie(e.target.value)}
-              >
-                <option value="todos">Todas</option>
-                <option value="Cachorro">Cachorro</option>
-                <option value="Gato">Gato</option>
-                <option value="Coelho">Coelho</option>
-                <option value="Hamster">Hamster</option>
-                <option value="Outro">Outro</option>
-              </select>
-            </div>
-
-            <div className={styles.filtroGroup}>
-              <label>
-                <FaMapMarkerAlt /> Cidade
-              </label>
-              <select
-                value={filtroCidade}
-                onChange={(e) => setFiltroCidade(e.target.value)}
-              >
-                <option value="todas">Todas</option>
-                {cidades.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className={styles.filtroGroup}>
-              <label>
-                <FaVenusMars /> Sexo
-              </label>
-              <select
-                value={filtroSexo}
-                onChange={(e) => setFiltroSexo(e.target.value)}
-              >
-                <option value="todos">Todos</option>
-                <option value="Macho">Macho</option>
-                <option value="Fêmea">Fêmea</option>
-              </select>
-            </div>
-
-            <div className={styles.filtroGroup}>
-              <label>
-                <FaRulerCombined /> Porte
-              </label>
-              <select
-                value={filtroPorte}
-                onChange={(e) => setFiltroPorte(e.target.value)}
-              >
-                <option value="todos">Todos</option>
-                <option value="Pequeno">Pequeno</option>
-                <option value="Médio">Médio</option>
-                <option value="Grande">Grande</option>
-              </select>
-            </div>
-
-            <div className={styles.filtroGroup}>
-              <label>
-                <FaSyringe /> Vacinado
-              </label>
-              <select
-                value={filtroVacinado}
-                onChange={(e) => setFiltroVacinado(e.target.value)}
-              >
-                <option value="todos">Tanto faz</option>
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
-              </select>
-            </div>
-
-            <div className={styles.filtroGroup}>
-              <label>
-                <FaStethoscope /> Castrado
-              </label>
-              <select
-                value={filtroCastrado}
-                onChange={(e) => setFiltroCastrado(e.target.value)}
-              >
-                <option value="todos">Tanto faz</option>
-                <option value="true">Sim</option>
-                <option value="false">Não</option>
-              </select>
-            </div>
-          </motion.section>
-        )}
-      </AnimatePresence>
-
-      <div className={styles.grid}>
-        <AnimatePresence mode="popLayout">
-          {animaisFiltrados.map((animal) => (
-            <motion.div
-              key={animal.id}
-              layout={!isMobile}
-              className={styles.card}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
+      {(!isMobile || filtrosAbertos) && (
+        <section className={styles.filtros}>
+          <div className={styles.filtroGroup}>
+            <label>
+              <MdOutlinePets /> Espécie
+            </label>
+            <select
+              value={filtroEspecie}
+              onChange={(e) => setFiltroEspecie(e.target.value)}
             >
-              <div className={styles.imageBox}>
-                <img src={animal.foto} alt={animal.nome} />
-                <span className={styles.badgeSexo}>{animal.sexo}</span>
-              </div>
+              <option value="todos">Todas</option>
+              <option value="Cachorro">Cachorro</option>
+              <option value="Gato">Gato</option>
+              <option value="Coelho">Coelho</option>
+              <option value="Hamster">Hamster</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
 
-              <div className={styles.details}>
-                <h3>{animal.nome}</h3>
-                <div className={styles.infoBreve}>
-                  <span>{formatarIdade(animal.idade)}</span>
-                  <span>• Porte {animal.porte}</span>
+          <div className={styles.filtroGroup}>
+            <label>
+              <FaMapMarkerAlt /> Cidade
+            </label>
+            <select
+              value={filtroCidade}
+              onChange={(e) => setFiltroCidade(e.target.value)}
+            >
+              <option value="todas">Todas</option>
+              {cidades.map((c) => (
+                <option key={c} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.filtroGroup}>
+            <label>
+              <FaVenusMars /> Sexo
+            </label>
+            <select
+              value={filtroSexo}
+              onChange={(e) => setFiltroSexo(e.target.value)}
+            >
+              <option value="todos">Todos</option>
+              <option value="Macho">Macho</option>
+              <option value="Fêmea">Fêmea</option>
+            </select>
+          </div>
+
+          <div className={styles.filtroGroup}>
+            <label>
+              <FaRulerCombined /> Porte
+            </label>
+            <select
+              value={filtroPorte}
+              onChange={(e) => setFiltroPorte(e.target.value)}
+            >
+              <option value="todos">Todos</option>
+              <option value="Pequeno">Pequeno</option>
+              <option value="Médio">Médio</option>
+              <option value="Grande">Grande</option>
+            </select>
+          </div>
+
+          <div className={styles.filtroGroup}>
+            <label>
+              <FaSyringe /> Vacinado
+            </label>
+            <select
+              value={filtroVacinado}
+              onChange={(e) => setFiltroVacinado(e.target.value)}
+            >
+              <option value="todos">Tanto faz</option>
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+
+          <div className={styles.filtroGroup}>
+            <label>
+              <FaStethoscope /> Castrado
+            </label>
+            <select
+              value={filtroCastrado}
+              onChange={(e) => setFiltroCastrado(e.target.value)}
+            >
+              <option value="todos">Tanto faz</option>
+              <option value="true">Sim</option>
+              <option value="false">Não</option>
+            </select>
+          </div>
+        </section>
+      )}
+      {loading ? (
+        <div className={styles.loading}>Carregando pets...</div>
+      ) : (
+        <div className={styles.grid}>
+          {animaisFiltrados.map((animal) => (
+            <Link key={animal.id} to={`/animal/${animal.id}`}>
+              <div className={styles.card}>
+                <div className={styles.imageBox}>
+                  <img src={animal.foto} alt={animal.nome} />
+                  <span className={styles.badgeSexo}>{animal.sexo}</span>
                 </div>
-                <p className={styles.cidadeText}>
-                  <FaMapMarkerAlt /> {animal.cidade}
-                </p>
-                <Link to={`/animal/${animal.id}`} className={styles.btnLink}>
-                  Ver Detalhes
-                </Link>
+
+                <div className={styles.details}>
+                  <h3>{animal.nome}</h3>
+                  <div className={styles.infoBreve}>
+                    <span>{formatarIdade(animal.idade)}</span>
+                    <span>• Porte {animal.porte}</span>
+                  </div>
+                  <p className={styles.cidadeText}>
+                    <FaMapMarkerAlt /> {animal.cidade}
+                  </p>
+                  <div className={styles.btnLink}> Ver Detalhes</div>
+                </div>
               </div>
-            </motion.div>
+            </Link>
           ))}
-        </AnimatePresence>
-      </div>
+        </div>
+      )}
 
       {!loading && animaisFiltrados.length === 0 && (
         <div className={styles.empty}>
