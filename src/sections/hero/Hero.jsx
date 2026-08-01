@@ -17,8 +17,6 @@ export default function Hero() {
 
         <p className={styles.subtitle}>
           Conectamos animais a lares cheio de amor e carinho.
-          <br />
-          Adote ou doe e faça a diferença hoje!
         </p>
 
         <div className={styles.buttons}>
