@@ -16,7 +16,7 @@ export default function Hero() {
         </h1>
 
         <p className={styles.subtitle}>
-          Conectamos animais a lares cheio de amor e carinho.
+          Conectamos animais a lares cheio de amor e carinho
         </p>
 
         <div className={styles.buttons}>
