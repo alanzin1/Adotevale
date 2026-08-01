@@ -17,7 +17,7 @@
   background-repeat: repeat;
   background-size: 200px;
 
-  opacity: 0.05;
+  opacity: 0.2;
   pointer-events: none;
 
   z-index: 0;
@@ -184,7 +184,7 @@
   backdrop-filter: blur(4px);
   padding: 6px 14px;
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 800;
   color: var(--accent-dark);
 }

@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <main className={styles.home}>
       <Hero />
-      <About />
       <Adopt />
+      <About />
     </main>
   );
 }

@@ -67,14 +67,14 @@ export default function Header() {
 
       navigate("/", { state: { scrollTo: sectionId } });
     },
-    [location.pathname, navigate]
+    [location.pathname, navigate],
   );
 
   const menuLinks = [
     { type: "route", to: "/", text: "Home" },
-    { type: "section", id: "about", text: "Sobre nós" },
     { type: "route", to: "/catalogo", text: "Adotar" },
     { type: "route", to: "/cadastro", text: "Doar" },
+    { type: "section", id: "about", text: "Sobre nós" },
   ];
 
   const isHeaderBlack = isForcedBlack || isScrolled || isMenuOpen;
@@ -108,7 +108,7 @@ export default function Header() {
               >
                 {link.text}
               </button>
-            )
+            ),
           )}
         </nav>
       )}
@@ -151,7 +151,7 @@ export default function Header() {
                     >
                       {link.text}
                     </button>
-                  )
+                  ),
                 )}
               </nav>
             </div>
