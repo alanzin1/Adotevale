@@ -1,0 +1,16 @@
+# ==========================================
+# AdoteVale - robots.txt
+# https://www.adotevale.com.br
+# ==========================================
+
+User-agent: *
+
+# Permitir todo o conteúdo público
+Allow: /
+
+# Áreas sem interesse para SEO
+Disallow: /painel/
+Disallow: /login
+
+# Sitemap
+Sitemap: https://www.adotevale.com.br/sitemap.xml
