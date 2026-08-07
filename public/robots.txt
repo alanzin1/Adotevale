@@ -5,10 +5,10 @@
 
 User-agent: *
 
-# Permitir todo o conteúdo público
+# Permitir acesso ao conteúdo público
 Allow: /
 
-# Áreas sem interesse para SEO
+# Áreas privadas
 Disallow: /painel/
 Disallow: /login
 
