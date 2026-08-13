@@ -70,8 +70,6 @@ export default function Adopt() {
               <div className={styles.card}>
                 <div className={styles.imageBox}>
                   <img src={animal.foto} alt={animal.nome} />
-
-                  <span className={styles.badgeSexo}>{animal.sexo}</span>
                 </div>
 
                 <div className={styles.details}>

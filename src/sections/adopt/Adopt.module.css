@@ -94,20 +94,6 @@
   transform: scale(1.1);
 }
 
-.badgeSexo {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.6rem;
-  font-weight: 800;
-  color: var(--accent-dark);
-  z-index: 2;
-}
-
 .details {
   padding: 1.5rem;
   flex: 1;

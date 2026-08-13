@@ -170,18 +170,6 @@
 .card:hover .imageBox img {
   transform: scale(1.1);
 }
-.badgeSexo {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.6rem;
-  font-weight: 800;
-  color: var(--accent-dark);
-}
 
 .details {
   padding: 1.5rem;
